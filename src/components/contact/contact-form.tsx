@@ -74,14 +74,14 @@ export function ContactForm() {
       </p>
 
       {status === "success" ? (
-        <output className="mt-8 block border-t-2 border-brand-orange bg-slate-50 p-7">
+        <output className="mt-8 block border-t-2 border-brand-accent bg-slate-50 p-7">
           <span className="block text-sm leading-relaxed text-slate-600 sm:text-base">
             {form.success}
           </span>
           <button
             type="button"
             onClick={() => setStatus("idle")}
-            className="mt-5 inline-flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] text-brand-orange uppercase transition-colors hover:text-brand-orange-dark"
+            className="mt-5 inline-flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] text-brand-accent uppercase transition-colors hover:text-brand-accent-dark"
           >
             {form.again}
             <ArrowRight className="size-3.5" />
@@ -178,7 +178,7 @@ export function ContactForm() {
               type="submit"
               size="lg"
               disabled={isSubmitting}
-              className="h-11 gap-2 bg-brand-orange px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase hover:bg-brand-orange-dark"
+              className="h-11 gap-2 bg-brand-accent px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase hover:bg-brand-accent-dark"
             >
               {isSubmitting ? `${form.submitting}...` : form.submit}
               {isSubmitting ? null : <ArrowRight className="size-4" />}

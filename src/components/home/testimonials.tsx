@@ -13,7 +13,7 @@ import {
 import { testimonials } from "@/lib/site";
 
 const controlClass =
-  "flex size-10 items-center justify-center border border-brand-soft/25 text-brand-soft/80 transition-colors hover:border-brand-orange hover:bg-brand-orange hover:text-white focus-visible:border-brand-orange focus-visible:text-white lg:size-11";
+  "flex size-10 items-center justify-center border border-brand-soft/25 text-brand-soft/80 transition-colors hover:border-brand-accent hover:bg-brand-accent hover:text-white focus-visible:border-brand-accent focus-visible:text-white lg:size-11";
 
 export function Testimonials() {
   const [api, setApi] = React.useState<CarouselApi>();
@@ -38,7 +38,7 @@ export function Testimonials() {
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="inline-flex items-center gap-3 border border-brand-soft/20 bg-brand-soft/10 px-4 py-2 text-[0.7rem] font-bold tracking-[0.2em] text-brand-soft uppercase">
-            <span className="h-px w-6 bg-brand-orange" />
+            <span className="h-px w-6 bg-brand-accent" />
             Testimonials
           </p>
           <h2 className="mt-6 font-heading text-4xl leading-[1.05] font-extrabold text-white sm:text-5xl">
@@ -59,7 +59,7 @@ export function Testimonials() {
             {testimonials.map((testimonial) => (
               <CarouselItem key={testimonial.name}>
                 <figure className="border border-brand-soft/15 bg-brand-deep px-6 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-12">
-                  <Quote className="size-7 text-brand-orange" />
+                  <Quote className="size-7 text-brand-accent" />
                   <blockquote className="mt-5 font-heading text-base leading-relaxed text-white/90 sm:text-lg lg:text-xl">
                     {testimonial.quote}
                   </blockquote>

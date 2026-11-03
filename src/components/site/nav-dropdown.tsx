@@ -34,7 +34,7 @@ const CLOSE_DELAY = 180;
 // without editing the primitive itself.
 const itemClassName = cn(
   "gap-2.5 px-3 py-2.5 text-[0.72rem] font-bold tracking-[0.12em] text-brand-dark uppercase",
-  "[&_svg]:text-brand-orange!",
+  "[&_svg]:text-brand-accent!",
   "hover:bg-brand! focus:bg-brand! data-highlighted:bg-brand!",
   "hover:text-white! focus:text-white! data-highlighted:text-white!",
   "hover:[&_svg]:text-white! focus:[&_svg]:text-white! data-highlighted:[&_svg]:text-white!",
@@ -94,8 +94,8 @@ export function ServicesNavItem({
         aria-current={isActive ? "page" : undefined}
         onClick={() => setOpen(false)}
         className={cn(
-          "block py-2 pl-3.5 text-[0.72rem] font-bold tracking-widest uppercase transition-colors hover:text-brand-orange",
-          isActive || open ? "text-brand-orange" : "text-white/80",
+          "block py-2 pl-3.5 text-[0.72rem] font-bold tracking-widest uppercase transition-colors hover:text-brand-accent",
+          isActive || open ? "text-brand-accent" : "text-white/80",
         )}
       >
         {label}
@@ -107,7 +107,7 @@ export function ServicesNavItem({
             <button
               type="button"
               aria-label={`Show ${label} links`}
-              className="flex items-center rounded-none py-2 pr-1 pl-1 text-white/70 transition-colors hover:text-brand-orange data-popup-open:text-brand-orange"
+              className="flex items-center rounded-none py-2 pr-1 pl-1 text-white/70 transition-colors hover:text-brand-accent data-popup-open:text-brand-accent"
             />
           }
         >
@@ -123,7 +123,7 @@ export function ServicesNavItem({
           sideOffset={6}
           onPointerEnter={clearTimer}
           onPointerLeave={closeAfterLeaving}
-          className="w-auto min-w-[19rem] rounded-none border-t-2 border-brand-orange bg-white p-1.5 shadow-xl shadow-brand/25 ring-0"
+          className="w-auto min-w-[19rem] rounded-none border-t-2 border-brand-accent bg-white p-1.5 shadow-xl shadow-brand/25 ring-0"
         >
           {items.map((item) => (
             <DropdownMenuItem
@@ -160,7 +160,7 @@ export function ServicesMobileNavItem({
           <Link
             href={href}
             aria-current={isActive ? "page" : undefined}
-            className="block w-full px-3 py-3 text-sm font-semibold tracking-wide text-white/85 uppercase hover:text-brand-orange"
+            className="block w-full px-3 py-3 text-sm font-semibold tracking-wide text-white/85 uppercase hover:text-brand-accent"
           />
         }
       >
@@ -174,11 +174,11 @@ export function ServicesMobileNavItem({
               render={
                 <Link
                   href={`/services/${item.slug}`}
-                  className="flex items-center gap-2.5 px-6 py-2 text-xs font-semibold tracking-wide text-white/70 uppercase hover:text-brand-orange"
+                  className="flex items-center gap-2.5 px-6 py-2 text-xs font-semibold tracking-wide text-white/70 uppercase hover:text-brand-accent"
                 />
               }
             >
-              <AppIcon name={item.icon} className="size-4 text-brand-orange" />
+              <AppIcon name={item.icon} className="size-4 text-brand-accent" />
               {item.title}
             </SheetClose>
           </li>

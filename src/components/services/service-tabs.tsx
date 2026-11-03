@@ -70,7 +70,7 @@ export function ServiceTabs({
               onKeyDown={(event) => handleKeyDown(event, index)}
               className={cn(
                 "relative px-3 py-4 text-[0.7rem] font-bold tracking-[0.18em] uppercase transition-colors sm:text-xs sm:tracking-[0.22em]",
-                "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-orange",
+                "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-accent",
                 isActive
                   ? "bg-brand-deep text-white"
                   : "text-brand-soft/60 hover:bg-brand-soft/10 hover:text-white",
@@ -78,7 +78,7 @@ export function ServiceTabs({
             >
               {tab.label}
               {isActive ? (
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand-orange" />
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand-accent" />
               ) : null}
             </button>
           );
@@ -99,7 +99,7 @@ export function ServiceTabs({
               <span className="flex size-20 items-center justify-center rounded-full bg-brand-soft/10 lg:size-28">
                 <AppIcon
                   name={tab.icon}
-                  className="size-9 text-brand-orange lg:size-11"
+                  className="size-9 text-brand-accent lg:size-11"
                 />
               </span>
             </div>

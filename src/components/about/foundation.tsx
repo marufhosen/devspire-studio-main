@@ -82,7 +82,7 @@ export function Foundation() {
                 onKeyDown={(event) => handleKeyDown(event, index)}
                 className={cn(
                   "relative px-3 py-4 text-[0.7rem] font-bold tracking-[0.18em] uppercase transition-colors sm:text-xs sm:tracking-[0.24em]",
-                  "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-orange",
+                  "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-accent",
                   isActive
                     ? "bg-brand-deep text-white"
                     : "text-brand-soft/60 hover:bg-brand-soft/10 hover:text-white",
@@ -90,7 +90,7 @@ export function Foundation() {
               >
                 {tab.label}
                 {isActive ? (
-                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand-orange" />
+                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand-accent" />
                 ) : null}
               </button>
             );
@@ -111,7 +111,7 @@ export function Foundation() {
                 <span className="flex size-24 items-center justify-center rounded-full bg-brand-soft/10 lg:size-32">
                   <AppIcon
                     name={tab.icon}
-                    className="size-10 text-brand-orange lg:size-12"
+                    className="size-10 text-brand-accent lg:size-12"
                   />
                 </span>
               </div>
@@ -130,7 +130,7 @@ export function Foundation() {
                       className="flex items-start gap-3 text-sm leading-relaxed text-white/85 sm:text-base"
                     >
                       <CheckCircle2
-                        className="mt-0.5 size-4 shrink-0 text-brand-orange"
+                        className="mt-0.5 size-4 shrink-0 text-brand-accent"
                         aria-hidden="true"
                       />
                       <span>

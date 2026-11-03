@@ -13,10 +13,10 @@ export function Highlights() {
           {highlights.map((item) => (
             <Card
               key={item.title}
-              className="gap-4 rounded-none border-t-2 border-t-brand-orange py-6 shadow-[0_18px_40px_-24px_rgba(15,59,107,0.45)] ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-1.5"
+              className="gap-4 rounded-none border-t-2 border-t-brand-accent py-6 shadow-[0_18px_40px_-24px_rgba(19,26,46,0.45)] ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-1.5"
             >
               <CardContent className="flex flex-col gap-3">
-                <span className="flex size-11 items-center justify-center bg-brand-soft text-brand-orange">
+                <span className="flex size-11 items-center justify-center bg-brand-soft text-brand-accent">
                   <AppIcon name={item.icon} className="size-6" />
                 </span>
                 <h3 className="font-heading text-lg font-bold text-brand">

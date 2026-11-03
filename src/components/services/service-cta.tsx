@@ -24,7 +24,7 @@ export function ServiceCta({
           <div className="relative flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div className="max-w-xl">
               {eyebrow ? (
-                <p className="text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
+                <p className="text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
                   {eyebrow}
                 </p>
               ) : null}
@@ -47,7 +47,7 @@ export function ServiceCta({
                 href="/contact"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "h-11 bg-brand-orange px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase hover:bg-brand-orange-dark",
+                  "h-11 bg-brand-accent px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase hover:bg-brand-accent-dark",
                 )}
               >
                 {action}
@@ -56,9 +56,9 @@ export function ServiceCta({
               {withAllServicesLink ? (
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-2 text-[0.72rem] font-bold tracking-[0.16em] text-white/80 uppercase transition-colors hover:text-brand-orange"
+                  className="inline-flex items-center gap-2 text-[0.72rem] font-bold tracking-[0.16em] text-white/80 uppercase transition-colors hover:text-brand-accent"
                 >
-                  <ArrowLeft className="size-4 text-brand-orange" />
+                  <ArrowLeft className="size-4 text-brand-accent" />
                   Explore Other Services
                 </Link>
               ) : null}

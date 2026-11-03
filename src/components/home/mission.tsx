@@ -24,8 +24,8 @@ export function Mission() {
           </div>
 
           <div className="flex flex-col justify-center bg-brand px-7 py-10 text-white sm:px-10 lg:px-14 lg:py-14">
-            <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
-              <span className="h-px w-8 bg-brand-orange" />
+            <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
+              <span className="h-px w-8 bg-brand-accent" />
               Who We Are
             </p>
             <h2 className="mt-5 font-heading text-3xl leading-tight font-extrabold sm:text-4xl">
@@ -45,7 +45,7 @@ export function Mission() {
                   key={value}
                   className="flex items-center gap-2.5 text-sm text-white/90"
                 >
-                  <span className="flex size-5 items-center justify-center bg-brand-orange">
+                  <span className="flex size-5 items-center justify-center bg-brand-accent">
                     <Check className="size-3 text-white" />
                   </span>
                   {value}

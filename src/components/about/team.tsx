@@ -7,10 +7,10 @@ export function Team() {
     <section className="bg-slate-50 py-16 lg:py-24">
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
-            <span className="h-px w-8 bg-brand-orange" />
+          <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
+            <span className="h-px w-8 bg-brand-accent" />
             Our Team
-            <span className="h-px w-8 bg-brand-orange" />
+            <span className="h-px w-8 bg-brand-accent" />
           </p>
           <h2 className="mt-5 font-heading text-3xl leading-tight font-extrabold text-brand sm:text-4xl">
             Leadership
@@ -24,7 +24,7 @@ export function Team() {
           {about.team.members.map((member) => (
             <article
               key={member.name}
-              className="flex flex-col border-t-2 border-brand-orange bg-white shadow-[0_25px_50px_-35px_rgba(15,59,107,0.55)]"
+              className="flex flex-col border-t-2 border-brand-accent bg-white shadow-[0_25px_50px_-35px_rgba(19,26,46,0.55)]"
             >
               <div className="relative aspect-[4/5] overflow-hidden bg-brand-soft">
                 <Image
@@ -40,7 +40,7 @@ export function Team() {
                 <h3 className="font-heading text-lg font-bold text-brand">
                   {member.name}
                 </h3>
-                <p className="mt-1.5 text-[0.7rem] font-bold tracking-[0.16em] text-brand-orange uppercase">
+                <p className="mt-1.5 text-[0.7rem] font-bold tracking-[0.16em] text-brand-accent uppercase">
                   {member.role}
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-slate-500">

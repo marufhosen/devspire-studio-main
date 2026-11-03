@@ -34,10 +34,10 @@ function SectionHeading({
 
   return (
     <div className="mx-auto max-w-2xl text-center">
-      <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
-        <span className="h-px w-8 bg-brand-orange" />
+      <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
+        <span className="h-px w-8 bg-brand-accent" />
         {eyebrow}
-        <span className="h-px w-8 bg-brand-orange" />
+        <span className="h-px w-8 bg-brand-accent" />
       </p>
       <h2 className="mt-5 font-heading text-3xl leading-tight font-extrabold text-brand sm:text-4xl">
         {title}
@@ -65,7 +65,7 @@ export function ServiceExpertise({ service }: { service: ServiceDetail }) {
           {expertise.items.map((item) => (
             <article
               key={item.title}
-              className="border-t-2 border-brand-orange bg-slate-50 p-6 transition-colors duration-300 hover:bg-white hover:shadow-[0_22px_45px_-30px_rgba(15,59,107,0.5)] sm:p-7"
+              className="border-t-2 border-brand-accent bg-slate-50 p-6 transition-colors duration-300 hover:bg-white hover:shadow-[0_22px_45px_-30px_rgba(19,26,46,0.5)] sm:p-7"
             >
               <span className="flex size-12 items-center justify-center bg-brand text-white">
                 <AppIcon name={item.icon} className="size-6" />
@@ -89,7 +89,7 @@ export function ServiceExpertise({ service }: { service: ServiceDetail }) {
                       className="flex items-start gap-2.5 text-sm leading-snug text-slate-500"
                     >
                       <Check
-                        className="mt-0.5 size-3.5 shrink-0 text-brand-orange"
+                        className="mt-0.5 size-3.5 shrink-0 text-brand-accent"
                         aria-hidden="true"
                       />
                       {point}
@@ -143,7 +143,7 @@ export function ServiceBenefits({
               className="border border-slate-200 bg-white p-6 transition-colors duration-300 hover:border-brand/25"
             >
               <CheckCircle2
-                className="size-6 text-brand-orange"
+                className="size-6 text-brand-accent"
                 aria-hidden="true"
               />
               <h3 className="mt-4 font-heading text-base font-bold text-brand">
@@ -183,12 +183,12 @@ export function ServicePlans({ service }: { service: ServiceDetail }) {
               key={plan.name}
               className={
                 plan.highlighted
-                  ? "relative border-2 border-brand-orange bg-brand-deep p-7"
+                  ? "relative border-2 border-brand-accent bg-brand-deep p-7"
                   : "border border-brand-soft/15 bg-brand-deep p-7"
               }
             >
               {plan.highlighted ? (
-                <span className="absolute -top-3 left-7 bg-brand-orange px-3 py-1 text-[0.65rem] font-bold tracking-[0.16em] text-white uppercase">
+                <span className="absolute -top-3 left-7 bg-brand-accent px-3 py-1 text-[0.65rem] font-bold tracking-[0.16em] text-white uppercase">
                   Most Popular
                 </span>
               ) : null}
@@ -197,7 +197,7 @@ export function ServicePlans({ service }: { service: ServiceDetail }) {
                 {plan.name}
               </h3>
               <p className="mt-4 flex items-baseline gap-2">
-                <span className="font-heading text-4xl font-extrabold text-brand-orange">
+                <span className="font-heading text-4xl font-extrabold text-brand-accent">
                   {plan.price}
                 </span>
                 <span className="text-xs font-semibold tracking-wide text-white/60 uppercase">
@@ -215,7 +215,7 @@ export function ServicePlans({ service }: { service: ServiceDetail }) {
                     className="flex items-start gap-2.5 text-sm leading-snug text-white/85"
                   >
                     <Check
-                      className="mt-0.5 size-3.5 shrink-0 text-brand-orange"
+                      className="mt-0.5 size-3.5 shrink-0 text-brand-accent"
                       aria-hidden="true"
                     />
                     {feature}
@@ -231,7 +231,7 @@ export function ServicePlans({ service }: { service: ServiceDetail }) {
           {plans.custom}{" "}
           <a
             href="/contact"
-            className="font-semibold text-brand-orange hover:underline"
+            className="font-semibold text-brand-accent hover:underline"
           >
             {plans.customAction}
           </a>
@@ -262,7 +262,7 @@ export function ServiceIndustries({ service }: { service: ServiceDetail }) {
           {industries.items.map((industry) => (
             <li
               key={industry.name}
-              className="border-l-2 border-brand-orange bg-brand-deep px-6 py-5"
+              className="border-l-2 border-brand-accent bg-brand-deep px-6 py-5"
             >
               <h3 className="font-heading text-base font-bold text-white">
                 {industry.name}
@@ -305,7 +305,7 @@ export function ServiceQuotes({ service }: { service: ServiceDetail }) {
               key={quote.name}
               className="border border-brand-soft/15 bg-brand-deep px-6 py-8 sm:px-8 sm:py-10"
             >
-              <Quote className="size-7 text-brand-orange" aria-hidden="true" />
+              <Quote className="size-7 text-brand-accent" aria-hidden="true" />
               <blockquote className="mt-5 text-sm leading-relaxed text-white/85 sm:text-base">
                 {quote.quote}
               </blockquote>
@@ -313,7 +313,7 @@ export function ServiceQuotes({ service }: { service: ServiceDetail }) {
                 <p className="font-heading text-sm font-bold text-white">
                   {quote.name}
                 </p>
-                <p className="mt-1 text-[0.7rem] font-semibold tracking-[0.14em] text-brand-orange uppercase">
+                <p className="mt-1 text-[0.7rem] font-semibold tracking-[0.14em] text-brand-accent uppercase">
                   {quote.role}
                 </p>
               </figcaption>

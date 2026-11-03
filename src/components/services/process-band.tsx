@@ -27,12 +27,12 @@ export function ProcessBand({
             className={
               isDark
                 ? "inline-flex items-center gap-3 border border-brand-soft/20 bg-brand-soft/10 px-4 py-2 text-[0.7rem] font-bold tracking-[0.2em] text-brand-soft uppercase"
-                : "flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-orange uppercase"
+                : "flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase"
             }
           >
-            {isDark ? null : <span className="h-px w-8 bg-brand-orange" />}
+            {isDark ? null : <span className="h-px w-8 bg-brand-accent" />}
             {eyebrow}
-            {isDark ? null : <span className="h-px w-8 bg-brand-orange" />}
+            {isDark ? null : <span className="h-px w-8 bg-brand-accent" />}
           </p>
           <h2
             className={
@@ -66,14 +66,14 @@ export function ProcessBand({
               key={step.title}
               className={
                 isDark
-                  ? "border-t-2 border-brand-orange bg-brand-deep p-6"
+                  ? "border-t-2 border-brand-accent bg-brand-deep p-6"
                   : "border border-slate-200 bg-white p-6"
               }
             >
               <span
                 className={
                   isDark
-                    ? "flex size-9 items-center justify-center bg-brand-orange font-heading text-sm font-extrabold text-white"
+                    ? "flex size-9 items-center justify-center bg-brand-accent font-heading text-sm font-extrabold text-white"
                     : "flex size-9 items-center justify-center bg-brand font-heading text-sm font-extrabold text-white"
                 }
               >

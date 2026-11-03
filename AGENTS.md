@@ -14,11 +14,11 @@ Read this before adding or changing any UI. The homepage is done; more pages wil
 
 ## Brand and design system
 
-- Brand tokens are defined once in `src/app/globals.css` and exposed to Tailwind: `--brand` (`bg-brand`, `text-brand`, `border-brand`), `--brand-dark`, `--brand-deep`, `--brand-orange`, `--brand-orange-dark`, `--brand-soft`. **Never hardcode brand hex values in components** — use the token utilities.
+- Brand tokens are defined once in `src/app/globals.css` and exposed to Tailwind: `--brand` (`bg-brand`, `text-brand`, `border-brand`), `--brand-dark`, `--brand-deep`, `--brand-accent`, `--brand-accent-dark`, `--brand-soft`, plus the logo spectrum's `--brand-cyan`, `--brand-indigo`, `--brand-violet`, `--brand-magenta` and `--brand-silver`. **Never hardcode brand hex values in components** — use the token utilities.
 - `--primary` is mapped to the brand navy, so stock shadcn components (`Button`, `Badge`, etc.) already carry the palette. Restyle through utilities instead of editing `src/components/ui/*`.
-- Typography: Montserrat is `--font-sans` and `--font-heading`; Dancing Script is `font-signature` for the script accent only. Headings are `font-heading font-extrabold text-brand`; section eyebrows are small, uppercase, `tracking-[0.2em]`, with an orange rule span.
+- Typography: Montserrat is `--font-sans` and `--font-heading`; Dancing Script is `font-signature` for the script accent only. Headings are `font-heading font-extrabold text-brand`; section eyebrows are small, uppercase, `tracking-[0.2em]`, with an accent rule span.
 - Shape: this project uses the shadcn `base-lyra` style, so corners are square (`rounded-none`). Do not introduce rounded cards or pill buttons without a deliberate design decision.
-- Recurring pattern language: navy surfaces for authority, orange for primary CTAs, icons and eyebrow accents; white cards with a 2px orange top border and a soft navy shadow.
+- Recurring pattern language: cosmic-navy surfaces for authority, the violet accent for primary CTAs, icons and eyebrow accents, with cyan→violet gradients reserved for the logo; white cards with a 2px accent top border and a soft navy shadow.
 - Page width comes from the `.site-container` class (`max-w-7xl` + responsive padding). Use it in every section — never set a per-section `max-w-*` wrapper.
 - Section rhythm is `py-16 lg:py-24` (adjust only with reason). Give every section that the nav or a CTA links to a stable `id`.
 
@@ -37,7 +37,7 @@ Read this before adding or changing any UI. The homepage is done; more pages wil
 - Use `next/image` for every image: pass `alt`, either `width`/`height` or `fill`, and a `sizes` hint so the optimizer serves a small variant (a full-size logo candidate is wrong).
 - On Next 16 use the `preload` prop, not the deprecated `priority`.
 - Remote images: Unsplash only, whitelisted in `next.config.ts` (`images.unsplash.com` plus the `qualities` allowlist). Add any new host there first.
-- The logo is the `Logo` component in `src/components/site/logo.tsx` — an inline SVG growth mark plus the DEVSPIRE / STUDIO wordmark in the heading font, coloured only with `--brand-orange` and white or navy. There is no raster logo file: adjust the component rather than swapping in an image.
+- The logo is the `Logo` component in `src/components/site/logo.tsx`: the original badge artwork in `public/devspire-logo.jpg` (masked to its circular rim so the square JPEG corners never show) beside the DEVSPIRE / STUDIO wordmark, which is gradient type rather than part of the raster. Use `<Logo />` for the lockup; don't place the raw JPEG anywhere. The favicon is `src/app/icon.png` (plus `src/app/apple-icon.png`), generated from that same artwork — regenerate both if the logo is replaced.
 - Contact email is `studiodevspire@gmail.com`, phone `+8801944007152`, address "Aftabnagar, Badda, Dhaka-1212, Bangladesh". Pull these from `site.ts`; never retype them.
 
 ## Verifying UI work

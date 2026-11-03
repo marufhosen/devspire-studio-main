@@ -9,7 +9,7 @@ export function Stats() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="border-l-2 border-brand-orange/60 pl-5"
+              className="border-l-2 border-brand-accent/60 pl-5"
             >
               <dt className="font-heading text-3xl font-extrabold text-white sm:text-4xl">
                 {stat.value}

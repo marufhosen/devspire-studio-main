@@ -25,8 +25,8 @@ export function ProjectFeature({
     >
       <div className={cn(flipped && "lg:order-2")}>
         <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand uppercase">
-          <span className="h-px w-8 bg-brand-orange" />
-          <span className="font-heading text-brand-orange">
+          <span className="h-px w-8 bg-brand-accent" />
+          <span className="font-heading text-brand-accent">
             {projectNumber(index)}
           </span>
           {project.category}
@@ -49,7 +49,7 @@ export function ProjectFeature({
         <dl className="mt-7 grid auto-cols-fr grid-flow-col gap-4 border-y border-slate-100 py-5">
           {project.facts.map((fact) => (
             <div key={fact.label}>
-              <dt className="font-heading text-base font-extrabold text-brand-orange">
+              <dt className="font-heading text-base font-extrabold text-brand-accent">
                 {fact.value}
               </dt>
               <dd className="mt-0.5 text-[0.62rem] leading-snug font-semibold tracking-wide text-slate-500 uppercase">
@@ -67,7 +67,7 @@ export function ProjectFeature({
             >
               <span
                 aria-hidden
-                className="mt-2 size-1.5 shrink-0 bg-brand-orange"
+                className="mt-2 size-1.5 shrink-0 bg-brand-accent"
               />
               {highlight}
             </li>
@@ -82,7 +82,7 @@ export function ProjectFeature({
             title={`${projectsPage.visitLabel} ${project.domain} (opens in a new tab)`}
             className={cn(
               buttonVariants({ size: "lg" }),
-              "h-11 bg-brand-orange px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase shadow-lg shadow-brand-orange/25 hover:bg-brand-orange-dark",
+              "h-11 bg-brand-accent px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase shadow-lg shadow-brand-accent/25 hover:bg-brand-accent-dark",
             )}
           >
             {`${projectsPage.visitLabel} ${project.name}`}
@@ -90,16 +90,16 @@ export function ProjectFeature({
           </a>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 text-[0.72rem] font-bold tracking-[0.16em] text-brand uppercase transition-colors hover:text-brand-orange"
+            className="inline-flex items-center gap-2 text-[0.72rem] font-bold tracking-[0.16em] text-brand uppercase transition-colors hover:text-brand-accent"
           >
             {projectsPage.projectAction}
-            <ArrowRight className="size-4 text-brand-orange" />
+            <ArrowRight className="size-4 text-brand-accent" />
           </Link>
         </div>
       </div>
 
       <div className={cn("relative", flipped && "lg:order-1")}>
-        <div className="relative aspect-[4/3] overflow-hidden bg-brand-soft shadow-[0_25px_50px_-35px_rgba(15,59,107,0.55)]">
+        <div className="relative aspect-[4/3] overflow-hidden bg-brand-soft shadow-[0_25px_50px_-35px_rgba(19,26,46,0.55)]">
           <Image
             src={project.image.src}
             alt={project.image.alt}

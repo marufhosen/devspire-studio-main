@@ -12,7 +12,7 @@ export function Cta() {
         <div className="relative overflow-hidden bg-gradient-to-r from-brand-dark to-brand px-8 py-12 text-white lg:px-14 lg:py-16">
           <div className="relative flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div className="max-w-xl">
-              <p className="text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
+              <p className="text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
                 Let&rsquo;s Work Together
               </p>
               <h2 className="mt-4 font-heading text-3xl leading-tight font-extrabold sm:text-4xl">
@@ -29,7 +29,7 @@ export function Cta() {
                 href="/contact"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "h-11 bg-brand-orange px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase hover:bg-brand-orange-dark",
+                  "h-11 bg-brand-accent px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase hover:bg-brand-accent-dark",
                 )}
               >
                 Get a Free Consultation
@@ -37,16 +37,16 @@ export function Cta() {
               <div className="flex flex-col gap-2 text-sm text-white/80">
                 <a
                   href={`tel:${site.phone}`}
-                  className="flex items-center gap-2 hover:text-brand-orange"
+                  className="flex items-center gap-2 hover:text-brand-accent"
                 >
-                  <Phone className="size-4 text-brand-orange" />
+                  <Phone className="size-4 text-brand-accent" />
                   {site.phoneDisplay}
                 </a>
                 <a
                   href={`mailto:${site.email}`}
-                  className="flex items-center gap-2 hover:text-brand-orange"
+                  className="flex items-center gap-2 hover:text-brand-accent"
                 >
-                  <Mail className="size-4 text-brand-orange" />
+                  <Mail className="size-4 text-brand-accent" />
                   {site.email}
                 </a>
               </div>

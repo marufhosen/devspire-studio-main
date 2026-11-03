@@ -14,10 +14,10 @@ export function SecurityCompliance() {
 
       <div className="site-container relative">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
-            <span className="h-px w-8 bg-brand-orange" />
+          <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
+            <span className="h-px w-8 bg-brand-accent" />
             {securityCompliance.eyebrow}
-            <span className="h-px w-8 bg-brand-orange" />
+            <span className="h-px w-8 bg-brand-accent" />
           </p>
           <h2 className="mt-5 font-heading text-3xl leading-tight font-extrabold text-white sm:text-4xl">
             {securityCompliance.title}
@@ -31,7 +31,7 @@ export function SecurityCompliance() {
           {securityCompliance.standards.map((standard) => (
             <Card
               key={standard.name}
-              className="gap-4 rounded-none border-t-2 border-t-brand-orange py-6 shadow-[0_18px_40px_-24px_rgba(15,59,107,0.45)] ring-1 ring-black/5"
+              className="gap-4 rounded-none border-t-2 border-t-brand-accent py-6 shadow-[0_18px_40px_-24px_rgba(19,26,46,0.45)] ring-1 ring-black/5"
             >
               <CardContent className="flex flex-col items-center gap-3 text-center">
                 <div className="flex h-20 items-center justify-center">

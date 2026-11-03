@@ -7,10 +7,10 @@ export function Comparison() {
     <section id="comparison" className="bg-white py-16 lg:py-24">
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
-            <span className="h-px w-8 bg-brand-orange" />
+          <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
+            <span className="h-px w-8 bg-brand-accent" />
             {comparison.eyebrow}
-            <span className="h-px w-8 bg-brand-orange" />
+            <span className="h-px w-8 bg-brand-accent" />
           </p>
           <h2 className="mt-5 font-heading text-3xl leading-tight font-extrabold text-brand sm:text-4xl">
             {comparison.title}
@@ -39,8 +39,8 @@ export function Comparison() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-brand-orange bg-brand-soft/60 py-4 pr-4 pl-5">
-                <p className="text-[0.68rem] font-bold tracking-[0.18em] text-brand-orange uppercase">
+              <div className="border-l-2 border-brand-accent bg-brand-soft/60 py-4 pr-4 pl-5">
+                <p className="text-[0.68rem] font-bold tracking-[0.18em] text-brand-accent uppercase">
                   {comparison.devspireLabel}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-brand-dark">

@@ -18,7 +18,7 @@ function ContactBadge({
 }) {
   return (
     <div className={cn("flex items-center gap-2.5", className)}>
-      <span className="flex size-8 shrink-0 items-center justify-center bg-white/10 text-brand-orange">
+      <span className="flex size-8 shrink-0 items-center justify-center bg-white/10 text-brand-accent">
         {icon}
       </span>
       <span className="flex flex-col leading-tight">
@@ -45,14 +45,14 @@ export function SiteHeader() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={social.label}
-                className="text-white/70 transition-colors hover:text-brand-orange"
+                className="text-white/70 transition-colors hover:text-brand-accent"
               >
                 <BrandIcon name={social.icon} className="size-3.5" />
               </Link>
             ))}
           </div>
           <p className="flex items-center gap-2 text-[0.7rem] text-white/75">
-            <Clock className="size-3.5 text-brand-orange" />
+            <Clock className="size-3.5 text-brand-accent" />
             {openingHours}
           </p>
         </div>
@@ -73,7 +73,7 @@ export function SiteHeader() {
           <a
             href={`tel:${site.phone}`}
             aria-label={`Call Now: ${site.phoneDisplay}`}
-            className="flex shrink-0 items-center gap-2 bg-brand-orange px-3.5 py-2.5 text-[0.7rem] font-bold tracking-widest text-white uppercase transition-colors hover:bg-brand-orange-dark lg:hidden"
+            className="flex shrink-0 items-center gap-2 bg-brand-accent px-3.5 py-2.5 text-[0.7rem] font-bold tracking-widest text-white uppercase transition-colors hover:bg-brand-accent-dark lg:hidden"
           >
             <Phone className="size-4" />
             Call Now
@@ -88,7 +88,7 @@ export function SiteHeader() {
               icon={<Phone className="size-4" />}
               title="Call Us Anytime"
             >
-              <a href={`tel:${site.phone}`} className="hover:text-brand-orange">
+              <a href={`tel:${site.phone}`} className="hover:text-brand-accent">
                 {site.phoneDisplay}
               </a>
             </ContactBadge>

@@ -27,9 +27,9 @@ The site currently ships the **homepage, About, Services, Why Us and Case Studie
 The homepage is composed of these sections, in order:
 
 1. **Top utility bar** — social links and opening hours on a darker navy strip.
-2. **Header** — logo, address block and "Call Us Anytime" phone on desktop; on smaller screens the contact details collapse into a compact orange "Call Now" button beside the logo.
+2. **Header** — logo, address block and "Call Us Anytime" phone on desktop; on smaller screens the contact details collapse into a compact accent "Call Now" button beside the logo.
 3. **Primary navigation** — real routes (Home, Services, Case Studies, Projects, About Us, Why Us, Careers, Contact) with the active page highlighted (including nested case study pages), "Get a Quote", and a slide-in sheet menu below the `lg` breakpoint whose body scrolls under a fixed header (eight items plus "Get a Quote" need the full desktop width). Sticks to the top on desktop. **Services** opens a dropdown listing all five service detail pages on hover (or via the caret beside it, by click and keyboard), while the label itself still goes to `/services`; the mobile sheet expands the same five links inline.
-4. **Hero** — gradient background, eyebrow label, headline, intro copy, orange CTA and secondary link, with a portrait that extends behind the card row.
+4. **Hero** — gradient background, eyebrow label, headline, intro copy, accent CTA and secondary link, with a portrait that extends behind the card row.
 5. **Highlight cards** — four white cards overlapping the hero (Quality Services, Valuable Ideas, Budget Friendly, Support 24/7).
 6. **Mission** — handshake photo beside a navy panel: "Who We Are", values list and a script-font motto.
 7. **Stats band** — navy strip with four key numbers.
@@ -72,7 +72,7 @@ The **Why Us page** (`/why-us`) is where the navigation's Why Us link lands — 
 
 1. **Why-us hero** — eyebrow, page title, intro copy and two CTAs (Start a Project, See Our Work).
 2. **Stats band** — the shared navy figures strip.
-3. **What Sets Us Apart** — six white cards with an orange top border, each an icon, a commitment and its detail.
+3. **What Sets Us Apart** — six white cards with a violet top border, each an icon, a commitment and its detail.
 4. **The Difference** — a row-by-row comparison of a typical vendor against working with Devspire Studio, the Devspire Studio side highlighted on a soft navy panel.
 5. **How We Work** — the shared four-step process band.
 6. **Testimonials** — the shared navy quote carousel.
@@ -94,7 +94,7 @@ Adding a real vacancy later means adding an entry to `careersPage.openings` (and
 The **Privacy Policy page** (`/privacy-policy`) is reached from the **Privacy Policy** link in the footer's copyright bar — deliberately not a primary navigation item:
 
 1. **Privacy hero** — eyebrow, page title, intro copy and a "Last updated" badge carrying the revision date.
-2. **Policy body** — a sticky "On This Page" contents list beside thirteen numbered sections (who we are, the information we collect, how we use it, our legal basis, cookies and analytics, when we share information, retention, security, international transfers, your rights, children's privacy and changes to the policy). Sections with lists render them as orange-marked bullets, and each one carries an `id` so the contents list links straight to it.
+2. **Policy body** — a sticky "On This Page" contents list beside thirteen numbered sections (who we are, the information we collect, how we use it, our legal basis, cookies and analytics, when we share information, retention, security, international transfers, your rights, children's privacy and changes to the policy). Sections with lists render them as accent-marked bullets, and each one carries an `id` so the contents list links straight to it.
 3. **Questions About This Policy** — a card with the contact email, phone and office address pulled from `site.ts`, plus CTAs to `/contact` and `/services`.
 
 Editing the policy means editing the `privacySections` array in [`src/lib/site.ts`](src/lib/site.ts): each entry is one numbered section, and the contents list, the anchor ids and the metadata description all derive from it. The `privacyPolicy` object beside it holds the page title, intro, revision date and the footer link's label and href, so the link and the page can never point at different URLs.
@@ -144,6 +144,7 @@ src/
 └─ lib/
    └─ site.ts           # site content and design data
 public/
+├─ devspire-logo.jpg    # original studio badge, used by the Logo component
 ├─ gdpr.webp            # GDPR badge (Security & Compliance band)
 ├─ soc-2.webp           # SOC 2 Type II badge (Security & Compliance band)
 ├─ iso.webp             # ISO 27001 badge (Security & Compliance band)
@@ -175,11 +176,11 @@ bunx tsc --noEmit  # type check
 
 ## Customising
 
-- **Brand colours** — edit the `--brand*` tokens at the top of [`src/app/globals.css`](src/app/globals.css). They are exposed to Tailwind as `bg-brand`, `text-brand-orange`, `border-brand`, etc., so no component hardcodes hex values.
+- **Brand colours** — edit the `--brand*` tokens at the top of [`src/app/globals.css`](src/app/globals.css). They follow the brand logo: a cosmic-navy base (`--brand`, `--brand-dark`, `--brand-deep`), a violet accent (`--brand-accent`, `--brand-accent-dark`), and the logo spectrum (`--brand-cyan`, `--brand-indigo`, `--brand-violet`, `--brand-magenta`, `--brand-silver`). They are exposed to Tailwind as `bg-brand`, `text-brand-accent`, `border-brand`, etc., so no component hardcodes hex values.
 - **Copy and data** — edit [`src/lib/site.ts`](src/lib/site.ts).
 - **Container width** — the `.site-container` class in `globals.css` controls page width and padding for every section.
 - **Remote images** — Unsplash is the only whitelisted host, configured in [`next.config.ts`](next.config.ts) together with the allowed image `qualities`. Add new hosts there before using them.
-- **Logo** — the lockup is the `Logo` component in `src/components/site/logo.tsx`: an inline SVG mark plus the wordmark set in the heading font, coloured with the brand tokens. Pass `tone="dark"` for a navy wordmark on light surfaces.
+- **Logo** — the lockup is the `Logo` component in `src/components/site/logo.tsx`: the original badge artwork in `public/devspire-logo.jpg`, masked to a circle so the square JPEG corners stay hidden, beside the DEVSPIRE / STUDIO wordmark set in gradient type. Pass `tone="dark"` for a navy wordmark on light surfaces, and replace `public/devspire-logo.jpg` when a higher-resolution export is available.
 - **Social profiles** — `socials` in `src/lib/site.ts` is deliberately empty until the studio's own accounts exist; add one entry per profile (its `icon` must match a key in `src/components/site/brand-icon.tsx`).
 
 ## Deployment

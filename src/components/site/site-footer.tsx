@@ -30,7 +30,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={social.label}
-                className="flex size-9 items-center justify-center border border-white/15 text-white/70 transition-colors hover:border-brand-orange hover:bg-brand-orange hover:text-white"
+                className="flex size-9 items-center justify-center border border-white/15 text-white/70 transition-colors hover:border-brand-accent hover:bg-brand-accent hover:text-white"
               >
                 <BrandIcon name={social.icon} className="size-4" />
               </a>
@@ -53,9 +53,9 @@ export function SiteFooter() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="inline-flex items-center gap-2 transition-colors hover:text-brand-orange"
+                    className="inline-flex items-center gap-2 transition-colors hover:text-brand-accent"
                   >
-                    <ArrowRight className="size-3 text-brand-orange" />
+                    <ArrowRight className="size-3 text-brand-accent" />
                     {link.label}
                   </Link>
                 </li>
@@ -72,9 +72,9 @@ export function SiteFooter() {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-2 transition-colors hover:text-brand-orange"
+                    className="inline-flex items-center gap-2 transition-colors hover:text-brand-accent"
                   >
-                    <ArrowRight className="size-3 text-brand-orange" />
+                    <ArrowRight className="size-3 text-brand-accent" />
                     {service.title}
                   </Link>
                 </li>
@@ -89,23 +89,23 @@ export function SiteFooter() {
           </h3>
           <ul className="mt-5 flex flex-col gap-4 text-sm">
             <li className="flex gap-3">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-brand-orange" />
+              <MapPin className="mt-0.5 size-4 shrink-0 text-brand-accent" />
               <span>{site.address}</span>
             </li>
             <li className="flex gap-3">
-              <Phone className="mt-0.5 size-4 shrink-0 text-brand-orange" />
+              <Phone className="mt-0.5 size-4 shrink-0 text-brand-accent" />
               <a
                 href={`tel:${site.phone}`}
-                className="transition-colors hover:text-brand-orange"
+                className="transition-colors hover:text-brand-accent"
               >
                 {site.phoneDisplay}
               </a>
             </li>
             <li className="flex gap-3">
-              <Mail className="mt-0.5 size-4 shrink-0 text-brand-orange" />
+              <Mail className="mt-0.5 size-4 shrink-0 text-brand-accent" />
               <a
                 href={`mailto:${site.email}`}
-                className="transition-colors hover:text-brand-orange"
+                className="transition-colors hover:text-brand-accent"
               >
                 {site.email}
               </a>
@@ -129,7 +129,7 @@ export function SiteFooter() {
             />
             <Link
               href={privacyPolicy.href}
-              className="font-semibold text-white/70 transition-colors hover:text-brand-orange"
+              className="font-semibold text-white/70 transition-colors hover:text-brand-accent"
             >
               {privacyPolicy.label}
             </Link>

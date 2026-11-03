@@ -13,10 +13,10 @@ export function ServiceFaq({ faq }: { faq: ServiceDetail["faq"] }) {
     <section className="bg-slate-50 py-16 lg:py-24">
       <div className="site-container">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
-            <span className="h-px w-8 bg-brand-orange" />
+          <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
+            <span className="h-px w-8 bg-brand-accent" />
             FAQ
-            <span className="h-px w-8 bg-brand-orange" />
+            <span className="h-px w-8 bg-brand-accent" />
           </p>
           <h2 className="mt-5 font-heading text-3xl leading-tight font-extrabold text-brand sm:text-4xl">
             {faq.title}
@@ -26,7 +26,7 @@ export function ServiceFaq({ faq }: { faq: ServiceDetail["faq"] }) {
           </p>
         </div>
 
-        <div className="mt-10 border-t-2 border-brand-orange bg-white px-6 py-2 sm:px-8">
+        <div className="mt-10 border-t-2 border-brand-accent bg-white px-6 py-2 sm:px-8">
           <Accordion>
             {faq.items.map((item, index) => (
               <AccordionItem

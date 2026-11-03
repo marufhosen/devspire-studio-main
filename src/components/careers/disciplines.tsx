@@ -27,9 +27,9 @@ export function Disciplines() {
           {disciplines.items.map((item) => (
             <li
               key={item.title}
-              className="border-t-2 border-brand-orange bg-brand-deep p-6"
+              className="border-t-2 border-brand-accent bg-brand-deep p-6"
             >
-              <span className="flex size-12 items-center justify-center bg-brand-orange text-white">
+              <span className="flex size-12 items-center justify-center bg-brand-accent text-white">
                 <AppIcon name={item.icon} className="size-6" />
               </span>
               <h3 className="mt-5 font-heading text-lg font-extrabold text-white">

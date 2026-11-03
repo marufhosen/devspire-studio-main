@@ -16,7 +16,7 @@ export function CaseStudiesCta({
         <div className="relative overflow-hidden bg-gradient-to-r from-brand-dark to-brand px-8 py-12 text-white lg:px-14 lg:py-16">
           <div className="relative flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div className="max-w-xl">
-              <p className="text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
+              <p className="text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
                 {caseStudiesPage.cta.eyebrow}
               </p>
               <h2 className="mt-4 font-heading text-3xl leading-tight font-extrabold sm:text-4xl">
@@ -32,7 +32,7 @@ export function CaseStudiesCta({
                 href="/contact"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "h-11 bg-brand-orange px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase hover:bg-brand-orange-dark",
+                  "h-11 bg-brand-accent px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase hover:bg-brand-accent-dark",
                 )}
               >
                 {caseStudiesPage.cta.action}
@@ -41,9 +41,9 @@ export function CaseStudiesCta({
               {withAllStudiesLink ? (
                 <Link
                   href="/case-studies"
-                  className="inline-flex items-center gap-2 text-[0.72rem] font-bold tracking-[0.16em] text-white/80 uppercase transition-colors hover:text-brand-orange"
+                  className="inline-flex items-center gap-2 text-[0.72rem] font-bold tracking-[0.16em] text-white/80 uppercase transition-colors hover:text-brand-accent"
                 >
-                  <ArrowLeft className="size-4 text-brand-orange" />
+                  <ArrowLeft className="size-4 text-brand-accent" />
                   All Case Studies
                 </Link>
               ) : null}

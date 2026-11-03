@@ -14,9 +14,14 @@
   --color-brand: var(--brand);
   --color-brand-dark: var(--brand-dark);
   --color-brand-deep: var(--brand-deep);
-  --color-brand-orange: var(--brand-orange);
-  --color-brand-orange-dark: var(--brand-orange-dark);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-dark: var(--brand-accent-dark);
   --color-brand-soft: var(--brand-soft);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-indigo: var(--brand-indigo);
+  --color-brand-violet: var(--brand-violet);
+  --color-brand-magenta: var(--brand-magenta);
+  --color-brand-silver: var(--brand-silver);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -56,13 +61,19 @@
 }
 
 :root {
-  /* Devspire Studio brand palette */
-  --brand: #0f3b6b;
-  --brand-dark: #0a2a4f;
-  --brand-deep: #08213f;
-  --brand-orange: #f0641e;
-  --brand-orange-dark: #d5540f;
-  --brand-soft: #eef3f9;
+  /* Devspire Studio brand palette, taken from the logo: a cosmic navy base,
+     the cyan-to-violet spectrum as the accent and silver for the badge rim. */
+  --brand: #131a2e;
+  --brand-dark: #0c1222;
+  --brand-deep: #080c17;
+  --brand-accent: #7c3aed;
+  --brand-accent-dark: #6d28d9;
+  --brand-soft: #eff0fb;
+  --brand-cyan: #22d3ee;
+  --brand-indigo: #6366f1;
+  --brand-violet: #a855f7;
+  --brand-magenta: #d946ef;
+  --brand-silver: #d4d4d8;
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -159,7 +170,7 @@
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: var(--brand-orange) var(--brand-deep);
+    scrollbar-color: var(--brand-accent) var(--brand-deep);
   }
 
   /* WebKit (Chrome, Safari, Edge) */
@@ -171,10 +182,10 @@
     background: var(--brand-deep);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--brand-orange);
+    background: var(--brand-accent);
     border-radius: 2px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--brand-orange-dark);
+    background: var(--brand-accent-dark);
   }
 }

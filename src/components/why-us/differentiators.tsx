@@ -8,10 +8,10 @@ export function Differentiators() {
     <section id="differentiators" className="bg-slate-50 py-16 lg:py-24">
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
-            <span className="h-px w-8 bg-brand-orange" />
+          <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
+            <span className="h-px w-8 bg-brand-accent" />
             {differentiators.eyebrow}
-            <span className="h-px w-8 bg-brand-orange" />
+            <span className="h-px w-8 bg-brand-accent" />
           </p>
           <h2 className="mt-5 font-heading text-3xl leading-tight font-extrabold text-brand sm:text-4xl">
             {differentiators.title}
@@ -25,9 +25,9 @@ export function Differentiators() {
           {differentiators.items.map((item) => (
             <li
               key={item.title}
-              className="border-t-2 border-brand-orange bg-white p-6 shadow-xl shadow-brand/25 sm:p-7"
+              className="border-t-2 border-brand-accent bg-white p-6 shadow-xl shadow-brand/25 sm:p-7"
             >
-              <span className="flex size-12 items-center justify-center bg-brand text-brand-orange">
+              <span className="flex size-12 items-center justify-center bg-brand text-brand-accent">
                 <AppIcon name={item.icon} className="size-6" />
               </span>
               <h3 className="mt-5 font-heading text-lg font-extrabold text-brand">

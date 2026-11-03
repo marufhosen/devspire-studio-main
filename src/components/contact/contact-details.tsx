@@ -33,7 +33,7 @@ export function ContactDetails() {
                 <div
                   key={channel.label}
                   className={cn(
-                    "border-t-2 border-brand-orange bg-slate-50 p-6",
+                    "border-t-2 border-brand-accent bg-slate-50 p-6",
                     channel.wide && "sm:col-span-2",
                   )}
                 >
@@ -63,7 +63,7 @@ export function ContactDetails() {
                     href={channel.href}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noreferrer" : undefined}
-                    className="mt-4 inline-flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] text-brand-orange uppercase transition-colors hover:text-brand-orange-dark"
+                    className="mt-4 inline-flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] text-brand-accent uppercase transition-colors hover:text-brand-accent-dark"
                   >
                     {channel.actionLabel}
                     <ArrowRight className="size-3.5" />

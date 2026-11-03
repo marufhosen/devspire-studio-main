@@ -11,7 +11,7 @@ export function ProjectsShowcase() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand uppercase">
-              <span className="h-px w-8 bg-brand-orange" />
+              <span className="h-px w-8 bg-brand-accent" />
               {projectsPage.section.eyebrow}
             </p>
             <h2 className="mt-5 font-heading text-3xl leading-tight font-extrabold text-brand sm:text-4xl">
@@ -24,10 +24,10 @@ export function ProjectsShowcase() {
 
           <Link
             href="/case-studies"
-            className="inline-flex shrink-0 items-center gap-2 text-[0.72rem] font-bold tracking-[0.16em] text-brand uppercase transition-colors hover:text-brand-orange"
+            className="inline-flex shrink-0 items-center gap-2 text-[0.72rem] font-bold tracking-[0.16em] text-brand uppercase transition-colors hover:text-brand-accent"
           >
             {projectsPage.secondaryAction}
-            <ArrowRight className="size-4 text-brand-orange" />
+            <ArrowRight className="size-4 text-brand-accent" />
           </Link>
         </div>
 

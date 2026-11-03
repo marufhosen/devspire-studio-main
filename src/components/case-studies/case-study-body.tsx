@@ -6,7 +6,7 @@ export function CaseStudyBody({ study }: { study: CaseStudy }) {
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="site-container">
-        <div className="relative aspect-[16/9] overflow-hidden bg-brand-soft shadow-[0_35px_65px_-45px_rgba(15,59,107,0.55)]">
+        <div className="relative aspect-[16/9] overflow-hidden bg-brand-soft shadow-[0_35px_65px_-45px_rgba(19,26,46,0.55)]">
           <Image
             src={study.image.src}
             alt={study.image.alt}
@@ -40,8 +40,8 @@ export function CaseStudyBody({ study }: { study: CaseStudy }) {
           </div>
 
           <div>
-            <div className="border-t-2 border-brand-orange bg-slate-50 p-7">
-              <h2 className="text-[0.7rem] font-bold tracking-[0.2em] text-brand-orange uppercase">
+            <div className="border-t-2 border-brand-accent bg-slate-50 p-7">
+              <h2 className="text-[0.7rem] font-bold tracking-[0.2em] text-brand-accent uppercase">
                 Our Approach
               </h2>
               <ol className="mt-6 grid gap-5">

@@ -14,12 +14,12 @@ export function PrivacyContent() {
             <ul className="mt-5 flex flex-col gap-3 text-sm">
               {privacyPolicy.sections.map((section, index) => (
                 <li key={section.id} className="flex gap-3">
-                  <span className="font-heading text-xs font-bold text-brand-orange">
+                  <span className="font-heading text-xs font-bold text-brand-accent">
                     {sectionNumber(index)}
                   </span>
                   <a
                     href={`#${section.id}`}
-                    className="text-slate-500 transition-colors hover:text-brand-orange"
+                    className="text-slate-500 transition-colors hover:text-brand-accent"
                   >
                     {section.title}
                   </a>
@@ -33,7 +33,7 @@ export function PrivacyContent() {
           {privacyPolicy.sections.map((section, index) => (
             <article key={section.id} id={section.id} className="scroll-mt-28">
               <div className="flex items-baseline gap-4">
-                <span className="font-heading text-sm font-extrabold tracking-widest text-brand-orange">
+                <span className="font-heading text-sm font-extrabold tracking-widest text-brand-accent">
                   {sectionNumber(index)}
                 </span>
                 <h2 className="font-heading text-xl leading-tight font-extrabold text-brand sm:text-2xl">
@@ -62,7 +62,7 @@ export function PrivacyContent() {
                       className="flex gap-3 text-sm leading-relaxed text-slate-600 sm:text-base"
                     >
                       <span
-                        className="mt-2.5 size-1.5 shrink-0 bg-brand-orange"
+                        className="mt-2.5 size-1.5 shrink-0 bg-brand-accent"
                         aria-hidden
                       />
                       <span>{point}</span>
