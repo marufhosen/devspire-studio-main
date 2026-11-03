@@ -1,0 +1,48 @@
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+
+import type { CaseStudy } from "@/lib/site";
+
+export function CaseStudyHero({ study }: { study: CaseStudy }) {
+  return (
+    <section className="relative overflow-hidden bg-brand-soft">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-[#eef4fb] to-[#dce8f6]" />
+      <div className="pointer-events-none absolute -top-28 right-0 size-[26rem] rounded-full bg-[#c9ddf3]/40 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 -left-24 size-[24rem] rounded-full bg-white/70 blur-3xl" />
+
+      <div className="site-container relative py-14 lg:py-20">
+        <Link
+          href="/case-studies"
+          className="inline-flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] text-slate-500 uppercase transition-colors hover:text-brand-orange"
+        >
+          <ArrowLeft className="size-3.5 text-brand-orange" />
+          All Case Studies
+        </Link>
+
+        <div className="mt-8 max-w-3xl">
+          <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
+            <span className="h-px w-8 bg-brand-orange" />
+            {study.industry}
+          </p>
+          <h1 className="mt-5 font-heading text-3xl leading-[1.1] font-extrabold tracking-tight text-brand sm:text-4xl lg:text-5xl">
+            {study.title}
+          </h1>
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+            {study.summary}
+          </p>
+
+          <ul className="mt-7 flex flex-wrap gap-2">
+            {study.services.map((service) => (
+              <li
+                key={service}
+                className="border border-brand/15 bg-white/70 px-3 py-1.5 text-[0.65rem] font-semibold tracking-wide text-brand uppercase"
+              >
+                {service}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}

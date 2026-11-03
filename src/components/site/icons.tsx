@@ -1,0 +1,87 @@
+import {
+  Award,
+  BadgeCheck,
+  Bot,
+  Brain,
+  Briefcase,
+  ChartColumn,
+  ChartPie,
+  ClipboardCheck,
+  Cloud,
+  Code2,
+  Database,
+  Globe,
+  GraduationCap,
+  Headphones,
+  Headset,
+  Laptop,
+  Layers,
+  Lightbulb,
+  type LucideIcon,
+  Map as MapIcon,
+  Monitor,
+  Presentation,
+  RefreshCw,
+  Server,
+  Settings,
+  ShieldCheck,
+  Smartphone,
+  Target,
+  TrendingUp,
+  UserPlus,
+  Users,
+  Wallet,
+  Workflow,
+  Wrench,
+  Zap,
+} from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
+const icons: Record<string, LucideIcon> = {
+  "badge-check": BadgeCheck,
+  lightbulb: Lightbulb,
+  wallet: Wallet,
+  headset: Headset,
+  headphones: Headphones,
+  zap: Zap,
+  code: Code2,
+  cloud: Cloud,
+  chart: ChartColumn,
+  layers: Layers,
+  bot: Bot,
+  shield: ShieldCheck,
+  target: Target,
+  award: Award,
+  users: Users,
+  "user-plus": UserPlus,
+  briefcase: Briefcase,
+  graduation: GraduationCap,
+  globe: Globe,
+  server: Server,
+  smartphone: Smartphone,
+  database: Database,
+  laptop: Laptop,
+  brain: Brain,
+  pie: ChartPie,
+  trending: TrendingUp,
+  monitor: Monitor,
+  wrench: Wrench,
+  settings: Settings,
+  workflow: Workflow,
+  refresh: RefreshCw,
+  clipboard: ClipboardCheck,
+  map: MapIcon,
+  presentation: Presentation,
+};
+
+export function AppIcon({
+  name,
+  className,
+}: {
+  name: string;
+  className?: string;
+}) {
+  const Icon = icons[name] ?? BadgeCheck;
+  return <Icon className={cn("size-5", className)} aria-hidden="true" />;
+}

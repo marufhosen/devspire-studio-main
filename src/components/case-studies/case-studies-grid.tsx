@@ -1,0 +1,16 @@
+import { CaseStudyCard } from "@/components/case-studies/case-study-card";
+import { caseStudies } from "@/lib/site";
+
+export function CaseStudiesGrid() {
+  return (
+    <section className="bg-white py-16 lg:py-24">
+      <div className="site-container">
+        <div className="grid auto-rows-fr gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {caseStudies.map((study) => (
+            <CaseStudyCard key={study.slug} study={study} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
