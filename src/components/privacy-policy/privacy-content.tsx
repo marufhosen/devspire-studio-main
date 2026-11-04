@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/reveal";
 import { privacyPolicy } from "@/lib/site";
 
 const sectionNumber = (index: number) => String(index + 1).padStart(2, "0");
@@ -7,7 +8,7 @@ export function PrivacyContent() {
     <section className="bg-white py-16 lg:py-24">
       <div className="site-container grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-4">
-          <div className="lg:sticky lg:top-24">
+          <Reveal className="lg:sticky lg:top-24">
             <h2 className="font-heading text-sm font-bold tracking-widest text-brand uppercase">
               On This Page
             </h2>
@@ -26,12 +27,17 @@ export function PrivacyContent() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         </div>
 
         <div className="flex flex-col gap-10 lg:col-span-8 lg:gap-12">
           {privacyPolicy.sections.map((section, index) => (
-            <article key={section.id} id={section.id} className="scroll-mt-28">
+            <Reveal
+              as="article"
+              key={section.id}
+              id={section.id}
+              className="scroll-mt-28"
+            >
               <div className="flex items-baseline gap-4">
                 <span className="font-heading text-sm font-extrabold tracking-widest text-brand-accent">
                   {sectionNumber(index)}
@@ -70,7 +76,7 @@ export function PrivacyContent() {
                   ))}
                 </ul>
               ) : null}
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

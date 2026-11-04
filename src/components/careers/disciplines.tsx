@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { AppIcon } from "@/components/site/icons";
 import { careersPage } from "@/lib/site";
 
@@ -11,7 +13,7 @@ export function Disciplines() {
     >
       <div className="pointer-events-none absolute -top-24 right-0 size-80 rounded-full bg-white/5" />
       <div className="site-container relative">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="inline-flex items-center gap-3 border border-brand-soft/20 bg-brand-soft/10 px-4 py-2 text-[0.7rem] font-bold tracking-[0.2em] text-brand-soft uppercase">
             {disciplines.eyebrow}
           </p>
@@ -21,13 +23,15 @@ export function Disciplines() {
           <p className="mt-4 text-sm leading-relaxed text-white/70 sm:text-base">
             {disciplines.intro}
           </p>
-        </div>
+        </Reveal>
 
-        <ul className="mt-12 grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger as="ul" className="mt-12 grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {disciplines.items.map((item) => (
-            <li
+            <StaggerItem
               key={item.title}
-              className="border-t-2 border-brand-accent bg-brand-deep p-6"
+              as="li"
+              hover
+              className="h-full border-t-2 border-brand-accent bg-brand-deep p-6"
             >
               <span className="flex size-12 items-center justify-center bg-brand-accent text-white">
                 <AppIcon name={item.icon} className="size-6" />
@@ -48,9 +52,9 @@ export function Disciplines() {
                   </li>
                 ))}
               </ul>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </section>
   );

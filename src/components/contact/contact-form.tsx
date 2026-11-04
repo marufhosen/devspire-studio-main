@@ -1,8 +1,10 @@
 "use client";
 
+import { AnimatePresence, m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { type FormEvent, useState } from "react";
 
+import { DURATION, EASE_OUT } from "@/components/motion/variants";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -73,22 +75,40 @@ export function ContactForm() {
         {form.description}
       </p>
 
-      {status === "success" ? (
-        <output className="mt-8 block border-t-2 border-brand-accent bg-slate-50 p-7">
+      {/* The form swaps between three states; each one fades in instead of
+          snapping, so success and failure feedback read as the same panel. */}
+      <AnimatePresence mode="wait" initial={false}>
+        {status === "success" ? (
+          <m.output
+            key="success"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: DURATION.base, ease: EASE_OUT }}
+            className="mt-8 block border-t-2 border-brand-accent bg-slate-50 p-7"
+          >
           <span className="block text-sm leading-relaxed text-slate-600 sm:text-base">
             {form.success}
           </span>
-          <button
-            type="button"
-            onClick={() => setStatus("idle")}
-            className="mt-5 inline-flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] text-brand-accent uppercase transition-colors hover:text-brand-accent-dark"
+            <button
+              type="button"
+              onClick={() => setStatus("idle")}
+              className="mt-5 inline-flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] text-brand-accent uppercase transition-colors hover:text-brand-accent-dark"
+            >
+              {form.again}
+              <ArrowRight className="size-3.5" />
+            </button>
+          </m.output>
+        ) : (
+          <m.form
+            key="form"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: DURATION.base, ease: EASE_OUT }}
+            onSubmit={handleSubmit}
+            className="mt-8 grid gap-5"
           >
-            {form.again}
-            <ArrowRight className="size-3.5" />
-          </button>
-        </output>
-      ) : (
-        <form onSubmit={handleSubmit} className="mt-8 grid gap-5">
           <div className="grid gap-5 sm:grid-cols-2">
             <div className="grid gap-2">
               <Label htmlFor="name" className={labelClass}>
@@ -164,14 +184,21 @@ export function ContactForm() {
             />
           </div>
 
-          {status === "failure" ? (
-            <p
-              role="alert"
-              className="border-l-2 border-destructive bg-destructive/5 px-4 py-3 text-sm text-destructive"
-            >
-              {errorMessage || form.failure}
-            </p>
-          ) : null}
+          <AnimatePresence initial={false}>
+            {status === "failure" ? (
+              <m.p
+                key="error"
+                role="alert"
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: DURATION.fast, ease: EASE_OUT }}
+                className="border-l-2 border-destructive bg-destructive/5 px-4 py-3 text-sm text-destructive"
+              >
+                {errorMessage || form.failure}
+              </m.p>
+            ) : null}
+          </AnimatePresence>
 
           <div className="pt-1">
             <Button
@@ -182,10 +209,11 @@ export function ContactForm() {
             >
               {isSubmitting ? `${form.submitting}...` : form.submit}
               {isSubmitting ? null : <ArrowRight className="size-4" />}
-            </Button>
-          </div>
-        </form>
-      )}
+              </Button>
+            </div>
+          </m.form>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

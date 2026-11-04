@@ -6,6 +6,8 @@ import {
   Montserrat,
 } from "next/font/google";
 import "./globals.css";
+import { MotionProvider } from "@/components/motion/motion-provider";
+import { ScrollToTop } from "@/components/site/scroll-to-top";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteNav } from "@/components/site/site-nav";
@@ -69,12 +71,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
     >
       <body className="flex min-h-full flex-col bg-white">
-        <TooltipProvider>
-          <SiteHeader />
-          <SiteNav />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </TooltipProvider>
+        <MotionProvider>
+          <TooltipProvider>
+            <SiteHeader />
+            <SiteNav />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+            <ScrollToTop />
+          </TooltipProvider>
+        </MotionProvider>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { AppIcon } from "@/components/site/icons";
 import { advantages } from "@/lib/site";
 
@@ -5,7 +7,7 @@ export function Advantages() {
   return (
     <section id="why-us" className="bg-slate-50 py-16 lg:py-24">
       <div className="site-container">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
             <span className="h-px w-8 bg-brand-accent" />
             Why Choose Us
@@ -18,11 +20,11 @@ export function Advantages() {
             What sets Devspire Studio apart from other software development and
             data analytics companies.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+        <Stagger className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
           {advantages.map((item) => (
-            <div
+            <StaggerItem
               key={item.title}
               className="flex flex-col items-center text-center"
             >
@@ -35,9 +37,9 @@ export function Advantages() {
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">
                 {item.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

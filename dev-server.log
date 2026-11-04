@@ -1,0 +1,70 @@
+▲ Next.js 16.3.8 (Turbopack)
+- Local:         http://localhost:3100
+- Network:       http://10.20.30.2:3100
+- Environments: .env
+✓ Ready in 507ms
+✓ Running next.config.ts took 43ms
+
+ GET / 200 in 1016ms (next.js: 228ms, application-code: 788ms)
+ GET /about 200 in 1010ms (next.js: 269ms, application-code: 741ms)
+ GET / 200 in 1014ms (next.js: 233ms, application-code: 781ms)
+ GET /about 200 in 124ms (next.js: 6ms, application-code: 118ms)
+[browser] Image with src "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET /careers 200 in 346ms (next.js: 58ms, application-code: 288ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/careers" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" data-scroll-behavior="smooth" className="h-full ant...">
+                          <body
+                            className="flex min-h-full flex-col bg-white"
+-                           data-new-gr-c-s-check-loaded="14.1344.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+ 
+ GET / 200 in 287ms (next.js: 5ms, application-code: 281ms)
+ GET / 200 in 157ms (next.js: 5ms, application-code: 152ms)
+ GET / 200 in 144ms (next.js: 5ms, application-code: 139ms)
+ GET /about 200 in 129ms (next.js: 4ms, application-code: 124ms)
+[browser] Image with src "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET /about 200 in 53ms (next.js: 6ms, application-code: 47ms)
+ GET /about 200 in 36ms (next.js: 4ms, application-code: 32ms)
+ GET /about 200 in 241ms (next.js: 20ms, application-code: 221ms)
+ GET /about 200 in 167ms (next.js: 12ms, application-code: 155ms)
+ GET /about 200 in 103ms (next.js: 10ms, application-code: 93ms)

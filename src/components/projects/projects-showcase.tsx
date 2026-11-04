@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+import { Reveal } from "@/components/motion/reveal";
 import { ProjectFeature } from "@/components/projects/project-feature";
 import { projectsPage } from "@/lib/site";
 
@@ -9,7 +10,7 @@ export function ProjectsShowcase() {
     <section id="platforms" className="bg-white py-16 lg:py-24">
       <div className="site-container">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
+          <Reveal className="max-w-2xl">
             <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand uppercase">
               <span className="h-px w-8 bg-brand-accent" />
               {projectsPage.section.eyebrow}
@@ -20,7 +21,7 @@ export function ProjectsShowcase() {
             <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
               {projectsPage.section.intro}
             </p>
-          </div>
+          </Reveal>
 
           <Link
             href="/case-studies"
@@ -33,11 +34,9 @@ export function ProjectsShowcase() {
 
         <div className="mt-14 flex flex-col gap-16 lg:mt-16 lg:gap-24">
           {projectsPage.projects.map((project, index) => (
-            <ProjectFeature
-              key={project.slug}
-              project={project}
-              index={index}
-            />
+            <Reveal key={project.slug} delay={0.04}>
+              <ProjectFeature project={project} index={index} />
+            </Reveal>
           ))}
         </div>
       </div>

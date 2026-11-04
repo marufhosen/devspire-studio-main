@@ -1,8 +1,11 @@
 "use client";
 
+import { m } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { type KeyboardEvent, useRef, useState } from "react";
 
+import { Reveal } from "@/components/motion/reveal";
+import { DURATION, EASE_OUT } from "@/components/motion/variants";
 import { AppIcon } from "@/components/site/icons";
 import { about } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -43,7 +46,7 @@ export function Foundation() {
   return (
     <section className="bg-brand py-16 lg:py-24">
       <div className="site-container">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <p className="inline-flex items-center gap-3 border border-brand-soft/20 bg-brand-soft/10 px-4 py-2 text-[0.7rem] font-bold tracking-[0.2em] text-brand-soft uppercase">
             What Drives Us
           </p>
@@ -56,9 +59,9 @@ export function Foundation() {
           <p className="mt-4 text-sm leading-relaxed text-white/70 sm:text-base">
             {about.foundation.intro}
           </p>
-        </div>
+        </Reveal>
 
-        <div
+        <Reveal
           role="tablist"
           aria-labelledby="foundation-heading"
           className="mt-12 grid grid-cols-3 border border-brand-soft/15 bg-brand-soft/5"
@@ -95,18 +98,35 @@ export function Foundation() {
               </button>
             );
           })}
-        </div>
+        </Reveal>
 
-        {tabs.map((tab) => (
-          <div
-            key={tab.id}
-            role="tabpanel"
-            id={`foundation-panel-${tab.id}`}
-            aria-labelledby={`foundation-tab-${tab.id}`}
-            hidden={tab.id !== activeTab.id}
-            className="mt-6 border border-brand-soft/15 bg-brand-deep px-8 py-10 lg:px-12 lg:py-14"
-          >
-            <div className="grid items-center gap-8 lg:grid-cols-[auto_1fr] lg:gap-14">
+        {tabs.map((tab) => {
+          const isActive = tab.id === activeTab.id;
+
+          return (
+            <div
+              key={tab.id}
+              role="tabpanel"
+              id={`foundation-panel-${tab.id}`}
+              aria-labelledby={`foundation-tab-${tab.id}`}
+              hidden={!isActive}
+              className="mt-6 border border-brand-soft/15 bg-brand-deep px-8 py-10 lg:px-12 lg:py-14"
+            >
+              {/* Panels stay mounted for their ARIA relationships; switching
+                  fades the newly selected one in rather than snapping. */}
+              <m.div
+                initial={false}
+                animate={isActive ? "show" : "hidden"}
+                variants={{
+                  hidden: { opacity: 0, y: 8 },
+                  show: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: DURATION.base, ease: EASE_OUT },
+                  },
+                }}
+                className="grid items-center gap-8 lg:grid-cols-[auto_1fr] lg:gap-14"
+              >
               <div className="flex justify-center">
                 <span className="flex size-24 items-center justify-center rounded-full bg-brand-soft/10 lg:size-32">
                   <AppIcon
@@ -144,10 +164,11 @@ export function Foundation() {
                     </li>
                   ))}
                 </ul>
-              </div>
+                </div>
+              </m.div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

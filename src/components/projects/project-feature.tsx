@@ -2,6 +2,8 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Pressable } from "@/components/motion/pressable";
+import { Reveal } from "@/components/motion/reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { type Project, projectsPage } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -23,7 +25,11 @@ export function ProjectFeature({
       id={project.slug}
       className="grid scroll-mt-28 items-center gap-8 lg:grid-cols-2 lg:gap-14"
     >
-      <div className={cn(flipped && "lg:order-2")}>
+      <Reveal
+        direction={flipped ? "left" : "right"}
+        distance={20}
+        className={cn(flipped && "lg:order-2")}
+      >
         <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand uppercase">
           <span className="h-px w-8 bg-brand-accent" />
           <span className="font-heading text-brand-accent">
@@ -75,19 +81,21 @@ export function ProjectFeature({
         </ul>
 
         <div className="mt-8 flex flex-wrap items-center gap-6">
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noreferrer"
-            title={`${projectsPage.visitLabel} ${project.domain} (opens in a new tab)`}
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "h-11 bg-brand-accent px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase shadow-lg shadow-brand-accent/25 hover:bg-brand-accent-dark",
-            )}
-          >
-            {`${projectsPage.visitLabel} ${project.name}`}
-            <ArrowUpRight className="size-4" />
-          </a>
+          <Pressable>
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noreferrer"
+              title={`${projectsPage.visitLabel} ${project.domain} (opens in a new tab)`}
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "h-11 bg-brand-accent px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase shadow-lg shadow-brand-accent/25 hover:bg-brand-accent-dark",
+              )}
+            >
+              {`${projectsPage.visitLabel} ${project.name}`}
+              <ArrowUpRight className="size-4" />
+            </a>
+          </Pressable>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 text-[0.72rem] font-bold tracking-[0.16em] text-brand uppercase transition-colors hover:text-brand-accent"
@@ -96,9 +104,13 @@ export function ProjectFeature({
             <ArrowRight className="size-4 text-brand-accent" />
           </Link>
         </div>
-      </div>
+      </Reveal>
 
-      <div className={cn("relative", flipped && "lg:order-1")}>
+      <Reveal
+        direction={flipped ? "right" : "left"}
+        distance={20}
+        className={cn("relative", flipped && "lg:order-1")}
+      >
         <div className="relative aspect-[4/3] overflow-hidden bg-brand-soft shadow-[0_25px_50px_-35px_rgba(19,26,46,0.55)]">
           <Image
             src={project.image.src}
@@ -124,7 +136,7 @@ export function ProjectFeature({
             </span>
           </div>
         </div>
-      </div>
+      </Reveal>
     </article>
   );
 }

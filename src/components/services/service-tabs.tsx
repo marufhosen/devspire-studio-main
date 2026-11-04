@@ -1,7 +1,9 @@
 "use client";
 
+import { m } from "framer-motion";
 import { type KeyboardEvent, useRef, useState } from "react";
 
+import { DURATION, EASE_OUT } from "@/components/motion/variants";
 import { AppIcon } from "@/components/site/icons";
 import type { ServiceTab } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -85,16 +87,32 @@ export function ServiceTabs({
         })}
       </div>
 
-      {tabs.map((tab) => (
-        <div
-          key={tab.id}
-          role="tabpanel"
-          id={`${idPrefix}-panel-${tab.id}`}
-          aria-labelledby={`${idPrefix}-tab-${tab.id}`}
-          hidden={tab.id !== activeTab.id}
-          className="mt-6 border border-brand-soft/15 bg-brand-deep px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12"
-        >
-          <div className="grid items-center gap-8 lg:grid-cols-[auto_1fr] lg:gap-14">
+      {tabs.map((tab) => {
+        const isActive = tab.id === activeTab.id;
+
+        return (
+          <div
+            key={tab.id}
+            role="tabpanel"
+            id={`${idPrefix}-panel-${tab.id}`}
+            aria-labelledby={`${idPrefix}-tab-${tab.id}`}
+            hidden={!isActive}
+            className="mt-6 border border-brand-soft/15 bg-brand-deep px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12"
+          >
+            {/* Panels stay mounted for ARIA; the selected one fades in. */}
+            <m.div
+              initial={false}
+              animate={isActive ? "show" : "hidden"}
+              variants={{
+                hidden: { opacity: 0, y: 8 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: DURATION.base, ease: EASE_OUT },
+                },
+              }}
+              className="grid items-center gap-8 lg:grid-cols-[auto_1fr] lg:gap-14"
+            >
             <div className="flex justify-center">
               <span className="flex size-20 items-center justify-center rounded-full bg-brand-soft/10 lg:size-28">
                 <AppIcon
@@ -121,10 +139,11 @@ export function ServiceTabs({
                   </li>
                 ))}
               </ul>
-            </div>
+              </div>
+            </m.div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

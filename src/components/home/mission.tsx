@@ -1,6 +1,9 @@
 import { Check } from "lucide-react";
 import Image from "next/image";
 
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
+
 const values = [
   "Ownership mindset",
   "Transparent delivery",
@@ -12,7 +15,11 @@ export function Mission() {
     <section id="about" className="bg-white pb-16 lg:pb-24">
       <div className="site-container">
         <div className="grid lg:grid-cols-2">
-          <div className="relative min-h-[280px] overflow-hidden sm:min-h-[360px] lg:min-h-[460px]">
+          <Reveal
+            direction="right"
+            distance={26}
+            className="relative min-h-[280px] overflow-hidden sm:min-h-[360px] lg:min-h-[460px]"
+          >
             <Image
               src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
               alt="Two business partners shaking hands over an agreement"
@@ -21,9 +28,9 @@ export function Mission() {
               sizes="(min-width: 1024px) 600px, 100vw"
               className="object-cover"
             />
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col justify-center bg-brand px-7 py-10 text-white sm:px-10 lg:px-14 lg:py-14">
+          <Reveal className="flex flex-col justify-center bg-brand px-7 py-10 text-white sm:px-10 lg:px-14 lg:py-14">
             <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
               <span className="h-px w-8 bg-brand-accent" />
               Who We Are
@@ -39,19 +46,20 @@ export function Mission() {
               we work as one team with our clients.
             </p>
 
-            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+            <Stagger as="ul" gap={0.06} className="mt-7 grid gap-3 sm:grid-cols-2">
               {values.map((value) => (
-                <li
+                <StaggerItem
                   key={value}
+                  as="li"
                   className="flex items-center gap-2.5 text-sm text-white/90"
                 >
                   <span className="flex size-5 items-center justify-center bg-brand-accent">
                     <Check className="size-3 text-white" />
                   </span>
                   {value}
-                </li>
+                </StaggerItem>
               ))}
-            </ul>
+            </Stagger>
 
             <div className="mt-9 border-t border-white/15 pt-6">
               <p className="font-signature text-3xl leading-none text-white">
@@ -61,7 +69,7 @@ export function Mission() {
                 Devspire Studio
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

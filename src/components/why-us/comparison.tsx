@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { whyUsPage } from "@/lib/site";
 
 const { comparison } = whyUsPage;
@@ -6,7 +8,7 @@ export function Comparison() {
   return (
     <section id="comparison" className="bg-white py-16 lg:py-24">
       <div className="site-container">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
             <span className="h-px w-8 bg-brand-accent" />
             {comparison.eyebrow}
@@ -18,12 +20,13 @@ export function Comparison() {
           <p className="mt-4 text-sm leading-relaxed text-slate-500 sm:text-base">
             {comparison.intro}
           </p>
-        </div>
+        </Reveal>
 
-        <ul className="mt-12 flex flex-col gap-8">
+        <Stagger as="ul" gap={0.1} className="mt-12 flex flex-col gap-8">
           {comparison.rows.map((row) => (
-            <li
+            <StaggerItem
               key={row.topic}
+              as="li"
               className="grid gap-5 lg:grid-cols-[minmax(0,13rem)_1fr_1fr] lg:gap-8"
             >
               <h3 className="font-heading text-base font-extrabold text-brand lg:pt-1">
@@ -47,9 +50,9 @@ export function Comparison() {
                   {row.devspire}
                 </p>
               </div>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </section>
   );

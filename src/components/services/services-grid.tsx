@@ -1,6 +1,7 @@
 import { ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
 
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { AppIcon } from "@/components/site/icons";
 import { serviceList } from "@/lib/site";
 
@@ -8,12 +9,10 @@ export function ServicesGrid() {
   return (
     <section id="all-services" className="bg-slate-50 py-16 lg:py-24">
       <div className="site-container">
-        <div className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {serviceList.map((service) => (
-            <article
-              key={service.slug}
-              className="group relative flex flex-col border-t-2 border-brand-accent bg-white p-6 shadow-[0_25px_50px_-35px_rgba(19,26,46,0.55)] transition-transform duration-300 hover:-translate-y-1.5 sm:p-7"
-            >
+            <StaggerItem key={service.slug} hover className="h-full">
+              <article className="group relative flex h-full flex-col border-t-2 border-brand-accent bg-white p-6 shadow-[0_25px_50px_-35px_rgba(19,26,46,0.55)] sm:p-7">
               <span className="flex size-12 items-center justify-center bg-brand text-white transition-colors duration-300 group-hover:bg-brand-accent">
                 <AppIcon name={service.icon} className="size-6" />
               </span>
@@ -50,9 +49,10 @@ export function ServicesGrid() {
                 Learn More
                 <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
-            </article>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

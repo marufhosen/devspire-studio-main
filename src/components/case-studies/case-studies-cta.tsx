@@ -1,6 +1,8 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
+import { Pressable } from "@/components/motion/pressable";
+import { Reveal } from "@/components/motion/reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { caseStudiesPage } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -15,7 +17,7 @@ export function CaseStudiesCta({
       <div className="site-container">
         <div className="relative overflow-hidden bg-gradient-to-r from-brand-dark to-brand px-8 py-12 text-white lg:px-14 lg:py-16">
           <div className="relative flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-            <div className="max-w-xl">
+            <Reveal className="max-w-xl">
               <p className="text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
                 {caseStudiesPage.cta.eyebrow}
               </p>
@@ -25,18 +27,25 @@ export function CaseStudiesCta({
               <p className="mt-4 text-sm leading-relaxed text-white/75">
                 {caseStudiesPage.cta.description}
               </p>
-            </div>
+            </Reveal>
 
-            <div className="flex w-full flex-col items-start gap-5 sm:w-auto">
-              <Link
-                href="/contact"
-                className={cn(
-                  buttonVariants({ size: "lg" }),
-                  "h-11 bg-brand-accent px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase hover:bg-brand-accent-dark",
-                )}
-              >
-                {caseStudiesPage.cta.action}
-              </Link>
+            <Reveal
+              delay={0.12}
+              direction="left"
+              distance={16}
+              className="flex w-full flex-col items-start gap-5 sm:w-auto"
+            >
+              <Pressable>
+                <Link
+                  href="/contact"
+                  className={cn(
+                    buttonVariants({ size: "lg" }),
+                    "h-11 bg-brand-accent px-7 text-[0.72rem] font-bold tracking-[0.16em] text-white uppercase hover:bg-brand-accent-dark",
+                  )}
+                >
+                  {caseStudiesPage.cta.action}
+                </Link>
+              </Pressable>
 
               {withAllStudiesLink ? (
                 <Link
@@ -47,7 +56,7 @@ export function CaseStudiesCta({
                   All Case Studies
                 </Link>
               ) : null}
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>

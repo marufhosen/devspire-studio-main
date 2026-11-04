@@ -1,6 +1,8 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import type { CaseStudy } from "@/lib/site";
 
 export function CaseStudyHero({ study }: { study: CaseStudy }) {
@@ -19,7 +21,7 @@ export function CaseStudyHero({ study }: { study: CaseStudy }) {
           All Case Studies
         </Link>
 
-        <div className="mt-8 max-w-3xl">
+        <Reveal delay={0.08} className="mt-8 max-w-3xl">
           <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
             <span className="h-px w-8 bg-brand-accent" />
             {study.industry}
@@ -31,17 +33,18 @@ export function CaseStudyHero({ study }: { study: CaseStudy }) {
             {study.summary}
           </p>
 
-          <ul className="mt-7 flex flex-wrap gap-2">
+          <Stagger as="ul" gap={0.05} className="mt-7 flex flex-wrap gap-2">
             {study.services.map((service) => (
-              <li
+              <StaggerItem
                 key={service}
+                as="li"
                 className="border border-brand/15 bg-white/70 px-3 py-1.5 text-[0.65rem] font-semibold tracking-wide text-brand uppercase"
               >
                 {service}
-              </li>
+              </StaggerItem>
             ))}
-          </ul>
-        </div>
+          </Stagger>
+        </Reveal>
       </div>
     </section>
   );

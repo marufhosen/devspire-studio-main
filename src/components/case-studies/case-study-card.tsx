@@ -6,7 +6,7 @@ import type { CaseStudy } from "@/lib/site";
 
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
-    <article className="group relative flex flex-col border-t-2 border-brand-accent bg-white shadow-[0_25px_50px_-35px_rgba(19,26,46,0.55)] transition-transform duration-300 hover:-translate-y-1.5">
+    <article className="group relative flex h-full flex-col border-t-2 border-brand-accent bg-white shadow-[0_25px_50px_-35px_rgba(19,26,46,0.55)]">
       <div className="relative aspect-[16/9] overflow-hidden bg-brand-soft">
         <Image
           src={study.image.src}
