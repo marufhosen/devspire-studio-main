@@ -192,11 +192,19 @@ The contact form is the one piece that needs configuration. `/api/contact` sends
 | Variable               | Required | Purpose                                                        |
 | ---------------------- | -------- | -------------------------------------------------------------- |
 | `RESEND_API_KEY`       | yes      | Without it the endpoint returns a clear "not configured" error. |
-| `CONTACT_FROM_EMAIL`   | no       | Sender address; requires a domain verified with Resend.         |
-| `CONTACT_TO_EMAIL`     | no       | Where enquiries land; defaults to the address in `site.ts`.     | Remote images are optimised at runtime through the Next.js image optimizer, so the deployment target needs outbound access to `images.unsplash.com` (or set `images.unoptimized` and serve the originals).
+| `CONTACT_FROM_EMAIL`   | no       | Sender address; defaults to `onboarding@resend.dev`.            |
+| `CONTACT_TO_EMAIL`     | no       | Where enquiries land; defaults to the address in `site.ts`.     |
+
+While the Resend account has no verified domain, the test sender `onboarding@resend.dev` only delivers to the account owner's own address — anything else is rejected with a 403 and the form reports a send failure. So `CONTACT_TO_EMAIL` currently points at that owner address. To deliver to `studiodevspire@gmail.com` instead:
+
+1. Add a domain at [resend.com/domains](https://resend.com/domains) and add the DNS records Resend shows until it reports `verified`.
+2. Set `CONTACT_FROM_EMAIL` to an address on that domain (for example `enquiries@yourdomain.com`) and `CONTACT_TO_EMAIL` to the studio inbox.
+3. Restart the server so the new values are read.
+
+Remote images are optimised at runtime through the Next.js image optimizer, so the deployment target needs outbound access to `images.unsplash.com` (or set `images.unoptimized` and serve the originals).
 
 ## Roadmap
 
 - Remaining pages (Blog) using the shared layout.
 - Publish openings on `/careers` as they arise, with an application route rather than a mailto.
-- A verified sending domain once the studio has one, so enquiries can be sent from a branded address rather than the provider's test sender.
+- A verified sending domain once the studio has one, so enquiries can be sent from a branded address and reach the studio inbox rather than the provider's test sender and the account owner's address.
