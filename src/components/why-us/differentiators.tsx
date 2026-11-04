@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { AppIcon } from "@/components/site/icons";
 import { whyUsPage } from "@/lib/site";
 
@@ -7,7 +9,7 @@ export function Differentiators() {
   return (
     <section id="differentiators" className="bg-slate-50 py-16 lg:py-24">
       <div className="site-container">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
             <span className="h-px w-8 bg-brand-accent" />
             {differentiators.eyebrow}
@@ -19,13 +21,15 @@ export function Differentiators() {
           <p className="mt-4 text-sm leading-relaxed text-slate-500 sm:text-base">
             {differentiators.intro}
           </p>
-        </div>
+        </Reveal>
 
-        <ul className="mt-12 grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger as="ul" className="mt-12 grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {differentiators.items.map((item) => (
-            <li
+            <StaggerItem
               key={item.title}
-              className="border-t-2 border-brand-accent bg-white p-6 shadow-xl shadow-brand/25 sm:p-7"
+              as="li"
+              hover
+              className="h-full border-t-2 border-brand-accent bg-white p-6 shadow-xl shadow-brand/25 sm:p-7"
             >
               <span className="flex size-12 items-center justify-center bg-brand text-brand-accent">
                 <AppIcon name={item.icon} className="size-6" />
@@ -36,9 +40,9 @@ export function Differentiators() {
               <p className="mt-2.5 text-sm leading-relaxed text-slate-500">
                 {item.description}
               </p>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </section>
   );

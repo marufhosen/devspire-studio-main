@@ -1,6 +1,8 @@
 import { Check, CheckCircle2, Quote } from "lucide-react";
 
 import { CaseStudyCard } from "@/components/case-studies/case-study-card";
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { ServiceTabs } from "@/components/services/service-tabs";
 import { AppIcon } from "@/components/site/icons";
 import { caseStudies, type ServiceDetail } from "@/lib/site";
@@ -18,7 +20,7 @@ function SectionHeading({
 }) {
   if (dark) {
     return (
-      <div className="mx-auto max-w-2xl text-center">
+      <Reveal className="mx-auto max-w-2xl text-center">
         <p className="inline-flex items-center gap-3 border border-brand-soft/20 bg-brand-soft/10 px-4 py-2 text-[0.7rem] font-bold tracking-[0.2em] text-brand-soft uppercase">
           {eyebrow}
         </p>
@@ -28,12 +30,12 @@ function SectionHeading({
         <p className="mt-4 text-sm leading-relaxed text-white/70 sm:text-base">
           {intro}
         </p>
-      </div>
+      </Reveal>
     );
   }
 
   return (
-    <div className="mx-auto max-w-2xl text-center">
+    <Reveal className="mx-auto max-w-2xl text-center">
       <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
         <span className="h-px w-8 bg-brand-accent" />
         {eyebrow}
@@ -45,7 +47,7 @@ function SectionHeading({
       <p className="mt-4 text-sm leading-relaxed text-slate-500 sm:text-base">
         {intro}
       </p>
-    </div>
+    </Reveal>
   );
 }
 
@@ -61,12 +63,10 @@ export function ServiceExpertise({ service }: { service: ServiceDetail }) {
           intro={expertise.intro}
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {expertise.items.map((item) => (
-            <article
-              key={item.title}
-              className="border-t-2 border-brand-accent bg-slate-50 p-6 transition-colors duration-300 hover:bg-white hover:shadow-[0_22px_45px_-30px_rgba(19,26,46,0.5)] sm:p-7"
-            >
+            <StaggerItem key={item.title} hover className="h-full">
+              <article className="h-full border-t-2 border-brand-accent bg-slate-50 p-6 transition-colors duration-300 hover:bg-white hover:shadow-[0_22px_45px_-30px_rgba(19,26,46,0.5)] sm:p-7">
               <span className="flex size-12 items-center justify-center bg-brand text-white">
                 <AppIcon name={item.icon} className="size-6" />
               </span>
@@ -97,9 +97,10 @@ export function ServiceExpertise({ service }: { service: ServiceDetail }) {
                   ))}
                 </ul>
               ) : null}
-            </article>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
@@ -136,10 +137,11 @@ export function ServiceBenefits({
       <div className="site-container">
         <SectionHeading eyebrow={eyebrow} title={title} intro={intro} />
 
-        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger as="ul" className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((benefit) => (
-            <li
+            <StaggerItem
               key={benefit.title}
+              as="li"
               className="border border-slate-200 bg-white p-6 transition-colors duration-300 hover:border-brand/25"
             >
               <CheckCircle2
@@ -152,9 +154,9 @@ export function ServiceBenefits({
               <p className="mt-2.5 text-sm leading-relaxed text-slate-500">
                 {benefit.description}
               </p>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </section>
   );
@@ -177,11 +179,11 @@ export function ServicePlans({ service }: { service: ServiceDetail }) {
           intro={plans.intro}
         />
 
-        <div className="mt-12 grid items-start gap-6 lg:grid-cols-3">
+        <Stagger className="mt-12 grid items-start gap-6 lg:grid-cols-3">
           {plans.items.map((plan) => (
-            <article
-              key={plan.name}
-              className={
+            <StaggerItem key={plan.name} hover>
+              <article
+                className={
                 plan.highlighted
                   ? "relative border-2 border-brand-accent bg-brand-deep p-7"
                   : "border border-brand-soft/15 bg-brand-deep p-7"
@@ -222,9 +224,10 @@ export function ServicePlans({ service }: { service: ServiceDetail }) {
                   </li>
                 ))}
               </ul>
-            </article>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
 
         <p className="mt-8 text-center text-sm text-white/60">{plans.note}</p>
         <p className="mt-2 text-center text-sm text-white/60">
@@ -258,10 +261,11 @@ export function ServiceIndustries({ service }: { service: ServiceDetail }) {
           intro={industries.intro}
         />
 
-        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger as="ul" className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {industries.items.map((industry) => (
-            <li
+            <StaggerItem
               key={industry.name}
+              as="li"
               className="border-l-2 border-brand-accent bg-brand-deep px-6 py-5"
             >
               <h3 className="font-heading text-base font-bold text-white">
@@ -270,9 +274,9 @@ export function ServiceIndustries({ service }: { service: ServiceDetail }) {
               <p className="mt-2 text-sm leading-relaxed text-white/70">
                 {industry.description}
               </p>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </section>
   );
@@ -286,7 +290,7 @@ export function ServiceQuotes({ service }: { service: ServiceDetail }) {
   return (
     <section className="bg-brand py-16 lg:py-24">
       <div className="site-container">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="inline-flex items-center gap-3 border border-brand-soft/20 bg-brand-soft/10 px-4 py-2 text-[0.7rem] font-bold tracking-[0.2em] text-brand-soft uppercase">
             Testimonials
           </p>
@@ -297,12 +301,13 @@ export function ServiceQuotes({ service }: { service: ServiceDetail }) {
             Hear from businesses that have built successful development teams
             with our help.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <Stagger className="mt-12 grid gap-6 md:grid-cols-2">
           {service.quotes.map((quote) => (
-            <figure
+            <StaggerItem
               key={quote.name}
+              as="figure"
               className="border border-brand-soft/15 bg-brand-deep px-6 py-8 sm:px-8 sm:py-10"
             >
               <Quote className="size-7 text-brand-accent" aria-hidden="true" />
@@ -317,9 +322,9 @@ export function ServiceQuotes({ service }: { service: ServiceDetail }) {
                   {quote.role}
                 </p>
               </figcaption>
-            </figure>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
@@ -337,7 +342,7 @@ export function ServiceRelated({ service }: { service: ServiceDetail }) {
   return (
     <section className="bg-brand py-16 lg:py-24">
       <div className="site-container">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="inline-flex items-center gap-3 border border-brand-soft/20 bg-brand-soft/10 px-4 py-2 text-[0.7rem] font-bold tracking-[0.2em] text-brand-soft uppercase">
             Case Studies
           </p>
@@ -348,13 +353,15 @@ export function ServiceRelated({ service }: { service: ServiceDetail }) {
             See how our work has delivered measurable results for businesses
             like yours.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-12 grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-12 grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((study) => (
-            <CaseStudyCard key={study.slug} study={study} />
+            <StaggerItem key={study.slug} hover className="h-full">
+              <CaseStudyCard study={study} />
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

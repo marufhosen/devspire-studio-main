@@ -1,6 +1,8 @@
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 
 import { ContactForm } from "@/components/contact/contact-form";
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { contactChannels, contactPage } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -14,9 +16,11 @@ export function ContactDetails() {
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="site-container grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
-        <ContactForm />
+        <Reveal direction="right" distance={16}>
+          <ContactForm />
+        </Reveal>
 
-        <div>
+        <Reveal delay={0.08}>
           <h2 className="font-heading text-2xl leading-tight font-extrabold text-brand sm:text-3xl">
             {contactPage.information.title}
           </h2>
@@ -24,14 +28,15 @@ export function ContactDetails() {
             {contactPage.information.description}
           </p>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+          <Stagger className="mt-8 grid gap-5 sm:grid-cols-2">
             {contactChannels.map((channel) => {
               const Icon = channelIcons[channel.icon];
               const isExternal = channel.href.startsWith("http");
 
               return (
-                <div
+                <StaggerItem
                   key={channel.label}
+                  hover
                   className={cn(
                     "border-t-2 border-brand-accent bg-slate-50 p-6",
                     channel.wide && "sm:col-span-2",
@@ -68,11 +73,11 @@ export function ContactDetails() {
                     {channel.actionLabel}
                     <ArrowRight className="size-3.5" />
                   </a>
-                </div>
+                </StaggerItem>
               );
             })}
-          </div>
-        </div>
+          </Stagger>
+        </Reveal>
       </div>
     </section>
   );

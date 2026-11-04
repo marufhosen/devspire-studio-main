@@ -1,5 +1,6 @@
 "use client";
 
+import { Reveal } from "@/components/motion/reveal";
 import {
   Accordion,
   AccordionContent,
@@ -12,7 +13,7 @@ export function ServiceFaq({ faq }: { faq: ServiceDetail["faq"] }) {
   return (
     <section className="bg-slate-50 py-16 lg:py-24">
       <div className="site-container">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
             <span className="h-px w-8 bg-brand-accent" />
             FAQ
@@ -24,9 +25,12 @@ export function ServiceFaq({ faq }: { faq: ServiceDetail["faq"] }) {
           <p className="mt-4 text-sm leading-relaxed text-slate-500 sm:text-base">
             {faq.intro}
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-10 border-t-2 border-brand-accent bg-white px-6 py-2 sm:px-8">
+        <Reveal
+          delay={0.1}
+          className="mt-10 border-t-2 border-brand-accent bg-white px-6 py-2 sm:px-8"
+        >
           <Accordion>
             {faq.items.map((item, index) => (
               <AccordionItem
@@ -43,7 +47,7 @@ export function ServiceFaq({ faq }: { faq: ServiceDetail["faq"] }) {
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

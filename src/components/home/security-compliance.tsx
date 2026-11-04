@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { Card, CardContent } from "@/components/ui/card";
 import { securityCompliance } from "@/lib/site";
 
@@ -13,7 +15,7 @@ export function SecurityCompliance() {
       <div className="pointer-events-none absolute -bottom-28 -left-24 size-72 rounded-full bg-white/5" />
 
       <div className="site-container relative">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <p className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
             <span className="h-px w-8 bg-brand-accent" />
             {securityCompliance.eyebrow}
@@ -25,14 +27,12 @@ export function SecurityCompliance() {
           <p className="mt-4 text-sm leading-relaxed text-white/70 sm:text-base">
             {securityCompliance.description}
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <Stagger className="mt-12 grid gap-5 md:grid-cols-3">
           {securityCompliance.standards.map((standard) => (
-            <Card
-              key={standard.name}
-              className="gap-4 rounded-none border-t-2 border-t-brand-accent py-6 shadow-[0_18px_40px_-24px_rgba(19,26,46,0.45)] ring-1 ring-black/5"
-            >
+            <StaggerItem key={standard.name} hover className="h-full">
+              <Card className="h-full gap-4 rounded-none border-t-2 border-t-brand-accent py-6 shadow-[0_18px_40px_-24px_rgba(19,26,46,0.45)] ring-1 ring-black/5">
               <CardContent className="flex flex-col items-center gap-3 text-center">
                 <div className="flex h-20 items-center justify-center">
                   <Image
@@ -50,10 +50,11 @@ export function SecurityCompliance() {
                 <p className="text-sm leading-relaxed text-slate-500">
                   {standard.description}
                 </p>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

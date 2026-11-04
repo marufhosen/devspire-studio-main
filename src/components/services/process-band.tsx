@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import type { ServiceStep } from "@/lib/site";
 
 export function ProcessBand({
@@ -22,7 +24,7 @@ export function ProcessBand({
       }
     >
       <div className="site-container">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p
             className={
               isDark
@@ -52,9 +54,10 @@ export function ProcessBand({
           >
             {intro}
           </p>
-        </div>
+        </Reveal>
 
-        <ol
+        <Stagger
+          as="ol"
           className={
             isDark
               ? "mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
@@ -62,8 +65,9 @@ export function ProcessBand({
           }
         >
           {steps.map((step, index) => (
-            <li
+            <StaggerItem
               key={step.title}
+              as="li"
               className={
                 isDark
                   ? "border-t-2 border-brand-accent bg-brand-deep p-6"
@@ -97,9 +101,9 @@ export function ProcessBand({
               >
                 {step.description}
               </p>
-            </li>
+            </StaggerItem>
           ))}
-        </ol>
+        </Stagger>
       </div>
     </section>
   );

@@ -1,8 +1,10 @@
 "use client";
 
+import { m } from "framer-motion";
 import { Mail, MapPin, Menu, Phone } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { EASE_OUT } from "@/components/motion/variants";
 import {
   ServicesMobileNavItem,
   ServicesNavItem,
@@ -50,18 +52,33 @@ export function SiteNav() {
               }
 
               return (
-                <li key={link.label}>
+                /* Hovering the item drives the underline child through
+                    variants, so the rule grows from the left in one motion and
+                    no per-link state is needed. */
+                <m.li
+                  key={link.label}
+                  initial="rest"
+                  animate="rest"
+                  whileHover="hover"
+                  variants={{ rest: {}, hover: {} }}
+                >
                   <Link
                     href={link.href}
                     aria-current={isActive ? "page" : undefined}
                     className={cn(
-                      "block px-3.5 py-2 text-[0.72rem] font-bold tracking-widest uppercase transition-colors hover:text-brand-accent",
+                      "relative block px-3.5 py-2 text-[0.72rem] font-bold tracking-widest uppercase transition-colors hover:text-brand-accent",
                       isActive ? "text-brand-accent" : "text-white/80",
                     )}
                   >
                     {link.label}
+                    <m.span
+                      aria-hidden="true"
+                      variants={{ rest: { scaleX: 0 }, hover: { scaleX: 1 } }}
+                      transition={{ duration: 0.22, ease: EASE_OUT }}
+                      className="absolute inset-x-3.5 bottom-1 h-0.5 origin-left bg-brand-accent"
+                    />
                   </Link>
-                </li>
+                </m.li>
               );
             })}
           </ul>
@@ -148,12 +165,18 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center">
-          <Link
-            href="/contact"
-            className="text-[0.72rem] font-bold tracking-widest text-white/80 uppercase transition-colors hover:text-brand-accent"
+          <m.span
+            whileHover={{ x: 2 }}
+            transition={{ duration: 0.22, ease: EASE_OUT }}
+            className="inline-flex"
           >
-            Get a Quote
-          </Link>
+            <Link
+              href="/contact"
+              className="text-[0.72rem] font-bold tracking-widest text-white/80 uppercase transition-colors hover:text-brand-accent"
+            >
+              Get a Quote
+            </Link>
+          </m.span>
         </div>
       </div>
     </div>

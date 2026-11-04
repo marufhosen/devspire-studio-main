@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import type { CaseStudy } from "@/lib/site";
 
 export function CaseStudyResults({ study }: { study: CaseStudy }) {
@@ -7,14 +9,17 @@ export function CaseStudyResults({ study }: { study: CaseStudy }) {
       <div className="pointer-events-none absolute -bottom-24 -left-10 size-72 rounded-full bg-brand-accent/15 blur-2xl" />
 
       <div className="site-container relative">
-        <h2 className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase">
+        <Reveal
+          as="header"
+          className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand-accent uppercase"
+        >
           <span className="h-px w-8 bg-brand-accent" />
           Key Results
-        </h2>
+        </Reveal>
 
-        <dl className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger as="dl" className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {study.results.map((result) => (
-            <div
+            <StaggerItem
               key={result.label}
               className="border-l-2 border-brand-accent/60 pl-5"
             >
@@ -24,9 +29,9 @@ export function CaseStudyResults({ study }: { study: CaseStudy }) {
               <dd className="mt-1.5 text-xs font-semibold tracking-widest text-white/70 uppercase">
                 {result.label}
               </dd>
-            </div>
+            </StaggerItem>
           ))}
-        </dl>
+        </Stagger>
       </div>
     </section>
   );

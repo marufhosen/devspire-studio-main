@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import Image from "next/image";
 import * as React from "react";
 
+import { Reveal } from "@/components/motion/reveal";
 import {
   Carousel,
   type CarouselApi,
@@ -36,7 +37,7 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="bg-brand py-16 lg:py-24">
       <div className="site-container">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <p className="inline-flex items-center gap-3 border border-brand-soft/20 bg-brand-soft/10 px-4 py-2 text-[0.7rem] font-bold tracking-[0.2em] text-brand-soft uppercase">
             <span className="h-px w-6 bg-brand-accent" />
             Testimonials
@@ -48,13 +49,14 @@ export function Testimonials() {
             Hear from businesses that have experienced the Devspire Studio
             difference.
           </p>
-        </div>
+        </Reveal>
 
-        <Carousel
-          opts={{ align: "start", loop: true }}
-          setApi={setApi}
-          className="mt-12 lg:mt-14"
-        >
+        <Reveal delay={0.1}>
+          <Carousel
+            opts={{ align: "start", loop: true }}
+            setApi={setApi}
+            className="mt-12 lg:mt-14"
+          >
           <CarouselContent>
             {testimonials.map((testimonial) => (
               <CarouselItem key={testimonial.name}>
@@ -86,9 +88,10 @@ export function Testimonials() {
               </CarouselItem>
             ))}
           </CarouselContent>
-        </Carousel>
+          </Carousel>
+        </Reveal>
 
-        <div className="mt-8 flex items-center justify-center gap-3">
+        <Reveal delay={0.16} className="mt-8 flex items-center justify-center gap-3">
           <button
             type="button"
             aria-label="Previous testimonial"
@@ -105,7 +108,7 @@ export function Testimonials() {
           >
             <ChevronRight className="size-4" />
           </button>
-        </div>
+        </Reveal>
 
         <p aria-live="polite" className="sr-only">
           Testimonial {current + 1} of {testimonials.length}

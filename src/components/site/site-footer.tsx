@@ -1,6 +1,8 @@
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { BrandIcon } from "@/components/site/brand-icon";
 import { Logo } from "@/components/site/logo";
 import {
@@ -16,7 +18,7 @@ export function SiteFooter() {
   return (
     <footer id="contact" className="bg-brand-deep text-white/70">
       <div className="site-container grid gap-10 py-14 lg:grid-cols-12 lg:py-16">
-        <div className="lg:col-span-4">
+        <Reveal className="lg:col-span-4">
           <Logo />
           <p className="mt-5 max-w-sm text-sm leading-relaxed">
             {site.description} We build custom software, SaaS platforms and data
@@ -36,7 +38,7 @@ export function SiteFooter() {
               </a>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/*
           Company and Services share one block so they sit side by side on
@@ -48,9 +50,9 @@ export function SiteFooter() {
             <h3 className="font-heading text-sm font-bold tracking-widest text-white uppercase">
               Company
             </h3>
-            <ul className="mt-5 flex flex-col gap-3 text-sm">
+            <Stagger as="ul" gap={0.04} className="mt-5 flex flex-col gap-3 text-sm">
               {navLinks.map((link) => (
-                <li key={link.label}>
+                <StaggerItem key={link.label} as="li">
                   <Link
                     href={link.href}
                     className="inline-flex items-center gap-2 transition-colors hover:text-brand-accent"
@@ -58,18 +60,18 @@ export function SiteFooter() {
                     <ArrowRight className="size-3 text-brand-accent" />
                     {link.label}
                   </Link>
-                </li>
+                </StaggerItem>
               ))}
-            </ul>
+            </Stagger>
           </div>
 
           <div>
             <h3 className="font-heading text-sm font-bold tracking-widest text-white uppercase">
               Services
             </h3>
-            <ul className="mt-5 flex flex-col gap-3 text-sm">
+            <Stagger as="ul" gap={0.04} className="mt-5 flex flex-col gap-3 text-sm">
               {serviceList.map((service) => (
-                <li key={service.slug}>
+                <StaggerItem key={service.slug} as="li">
                   <Link
                     href={`/services/${service.slug}`}
                     className="inline-flex items-center gap-2 transition-colors hover:text-brand-accent"
@@ -77,13 +79,13 @@ export function SiteFooter() {
                     <ArrowRight className="size-3 text-brand-accent" />
                     {service.title}
                   </Link>
-                </li>
+                </StaggerItem>
               ))}
-            </ul>
+            </Stagger>
           </div>
         </div>
 
-        <div className="lg:col-span-3">
+        <Reveal delay={0.1} className="lg:col-span-3">
           <h3 className="font-heading text-sm font-bold tracking-widest text-white uppercase">
             Get In Touch
           </h3>
@@ -111,7 +113,7 @@ export function SiteFooter() {
               </a>
             </li>
           </ul>
-        </div>
+        </Reveal>
       </div>
 
       <div className="border-t border-white/10">

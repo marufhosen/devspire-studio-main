@@ -1,5 +1,6 @@
 import { FileText } from "lucide-react";
 
+import { Reveal } from "@/components/motion/reveal";
 import { privacyPolicy } from "@/lib/site";
 
 export function PrivacyHero() {
@@ -11,20 +12,28 @@ export function PrivacyHero() {
 
       <div className="site-container relative py-16 lg:py-24">
         <div className="max-w-3xl">
-          <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand uppercase">
-            <span className="h-px w-8 bg-brand-accent" />
-            {privacyPolicy.eyebrow}
-          </p>
-          <h1 className="mt-5 font-heading text-4xl leading-[1.1] font-extrabold tracking-tight text-brand sm:text-5xl">
-            {privacyPolicy.title}
-          </h1>
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
-            {privacyPolicy.intro}
-          </p>
-          <p className="mt-8 inline-flex items-center gap-2.5 border border-brand/15 bg-white/80 px-4 py-2 text-[0.68rem] font-bold tracking-[0.16em] text-brand uppercase">
-            <FileText className="size-3.5 text-brand-accent" />
-            {privacyPolicy.lastUpdatedLabel}: {privacyPolicy.lastUpdated}
-          </p>
+          <Reveal>
+            <p className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-brand uppercase">
+              <span className="h-px w-8 bg-brand-accent" />
+              {privacyPolicy.eyebrow}
+            </p>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <h1 className="mt-5 font-heading text-4xl leading-[1.1] font-extrabold tracking-tight text-brand sm:text-5xl">
+              {privacyPolicy.title}
+            </h1>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+              {privacyPolicy.intro}
+            </p>
+          </Reveal>
+          <Reveal delay={0.18}>
+            <p className="mt-8 inline-flex items-center gap-2.5 border border-brand/15 bg-white/80 px-4 py-2 text-[0.68rem] font-bold tracking-[0.16em] text-brand uppercase">
+              <FileText className="size-3.5 text-brand-accent" />
+              {privacyPolicy.lastUpdatedLabel}: {privacyPolicy.lastUpdated}
+            </p>
+          </Reveal>
         </div>
       </div>
     </section>
